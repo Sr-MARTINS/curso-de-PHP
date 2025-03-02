@@ -24,7 +24,14 @@
     $meses["marco"] = "aniversario";
     $meses["abriu"] = "semana santa";
 
-    $chaves = array_keys($meses);
-    echo $chaves;
-    print_r($chaves);
+        // $chaves = array_keys($meses);
+    // $chaves = array_values($meses);
+    // print_r($chaves);
+    // echo "Emprimindo as chaves " .$chaves;
+
+        //MOVENDO O PONTO DO ARRAY;
+        // "next()" - retorna o valor na posição seguinte ao item do array
+    echo "resistro atual " .current($meses) ."<br>"; 
+    echo "resistro seguinte " .next($meses) ."<br>";
+    echo "resistro anterior " .prev($meses);
 ?>
