@@ -30,8 +30,13 @@
     // echo "Emprimindo as chaves " .$chaves;
 
         //MOVENDO O PONTO DO ARRAY;
-        // "next()" - retorna o valor na posição seguinte ao item do array
-    echo "resistro atual " .current($meses) ."<br>"; 
-    echo "resistro seguinte " .next($meses) ."<br>";
-    echo "resistro anterior " .prev($meses);
+    // "next()" - retorna o valor na posição seguinte ao item do array
+    // echo "resistro atual " .current($meses) ."<br>"; 
+    // echo "resistro seguinte " .next($meses) ."<br>";
+    // echo "resistro anterior " .prev($meses);
+
+        //PEGANDO TAMANHO DO ARRAY;
+    // "count" - retorna o tamanho do array;
+    echo "tamanha do array " .count($meses);
+        
 ?>
