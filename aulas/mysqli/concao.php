@@ -9,14 +9,16 @@
 
     $qry = "INSERT INTO cliente(cliente, email, fone, endereco) VALUE('raimundo', 'raimundo@gmail.com', '99-777777777', 'rua 9')";
 
-    // $bat = "INSERT INTO cliente(cliente, email, fone, endereco) VALUE('Joao', 'joaozinho@gmail.com', '98-985102699', 'B 10')";
+    $qryUpdate = "UPDATE cliente set endereco = 'Bairro de Lurdes' WHILE id_clinete = 2";
 
-    $resultado = mysqli_query($conexao, $qry);
+    $qryDelete = "DELETE FROM `cliente` WHERE id_cliente = 2";
+
+    $resultado = mysqli_query($conexao, $qryDelete);
 
     if($resultado) {
-        echo "Operação realizada";
+        echo "Excluido com sucesso";
     }else {
-        echo "Não foi possivel  reaizar operação";
-    };  
+        echo "Não foi possivel  excluido ";
+    }
 
 ?>
