@@ -67,17 +67,19 @@
     
 
         //test
-    // $qryNovo = "INSERT INTO cliente(cliente, email, fone, endereco) VALUE('Costa', 'coita@gmail.com', '12-12131415', 'r 5')";
-    // $itemNovo = "INSERT INTO cliente(cliente, email, fone, endereco) VALUE('Chico', 'chico@gmail.com', '12-12222222', 'r 6')"; 
-    // $uppItem = "UPDATE cliente set cliente = 'Pedro' WHERE id_cliente = 36";
-    // $uppOne = "UPDATE cliente set endereco = 'rua Nova' WHERE id_cliente = 1";
+/*
+    $qryNovo = "INSERT INTO cliente(cliente, email, fone, endereco) VALUE('Costa', 'coita@gmail.com', '12-12131415', 'r 5')";
+    $itemNovo = "INSERT INTO cliente(cliente, email, fone, endereco) VALUE('Chico', 'chico@gmail.com', '12-12222222', 'r 6')"; 
+    $uppItem = "UPDATE cliente set cliente = 'Pedro' WHERE id_cliente = 36";
+    $uppOne = "UPDATE cliente set endereco = 'rua Nova' WHERE id_cliente = 1";
     
     
-    // $resultado = mysqli_query($conexao, $uppOne);
+    $resultado = mysqli_query($conexao, $uppOne);
     
-    // if($resultado) {
-    //     echo "add";
-    // }else {
-    //     echo "erro";
-    // };
+    if($resultado) {
+        echo "add";
+    }else {
+        echo "erro";
+    };
+*/
 ?>
