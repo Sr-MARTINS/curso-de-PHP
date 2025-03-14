@@ -14,6 +14,7 @@
     // escopo de variavel
         // $a = 1;
         // $b = 2;
+
         
         // function soma() {
             //$a = 5;
