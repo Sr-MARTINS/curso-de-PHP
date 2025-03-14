@@ -24,18 +24,19 @@
         </tr>
 
         <?php 
-                    //ERRO DE SINTAX - "catergoria" o modo q foi add no db
-            $sql = "SELECT * FROM catergoria";
+                
+            $sql = "SELECT * FROM categoria";
             $qry = mysqli_query($conexao, $sql);
 
             while ($linha = mysqli_fetch_array($qry)) {
         ?>
-            <tr>
-                <!-- <td> <?php $linha["id_categoria"] ?> </td> -->
-                <td> <?php $linha["categoria"] ?> </td>
-                <td> <?php $linha["atv_categoria"] ?> ativo</td>
+            <tr>    
 
-                <td> <a href="#" id="<?php $linha["id_categoria"] ?>"> Editar</td>
+                <td> <?= $linha["id_categoria"] ?>  </td>
+                <td> <?php echo $linha["categoria"] ?> </td>
+                <td> <?php echo $linha["atv_categoria"] ?> </td>
+
+                <td> <a href="editar.php" id="<?php $linha["id_categoria"] ?>"> Editar</td>
                 <td> <a href="#" id="<?php $linha["id_categoria"] ?>"> Excluir</td>
                 
             </tr>
