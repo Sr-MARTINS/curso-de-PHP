@@ -11,8 +11,8 @@
         <h1>Projeto Cadrastro</h1>
         <nav class="nav nav-pills flex-column flex-sm-row">
             <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="listaCategoria.php">Lista de Categoria</a>
-            <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
-            <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
+            <a class="flex-sm-fill link-opacity-25-hover text-sm-center nav-link" href="listaProduto.php">Lista de Produto</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="novoCadastro.php">Nova Categoria</a>
             <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
             <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
             <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
