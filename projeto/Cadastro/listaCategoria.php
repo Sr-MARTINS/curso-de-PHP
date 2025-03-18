@@ -36,8 +36,8 @@
                 <td> <?php echo $linha["categoria"] ?> </td>
                 <td> <?php echo $linha["atv_categoria"] ?> </td>
 
-                <td> <a href="editar.php" id="<?php $linha["id_categoria"] ?>"> Editar</td>
-                <td> <a href="#" id="<?php $linha["id_categoria"] ?>"> Excluir</td>
+                <td> <a href="editar.php?id=<?php echo $linha["id_categoria"] ?>"> Editar</td>
+                <td> <a href="excluir.php?id=<?php echo $linha["id_categoria"] ?>"> Excluir</td>
                 
             </tr>
         
