@@ -4,18 +4,19 @@
 
     if(isset($_POST["btCadastro"])) {
         $id_categoria = $_POST["txt_id_categoria"];
-        $produto = $_POST["produto"];
-        $preco = $_POST["preco"];
-        $descricao = $_POST["descricao"];
-        $ativo = $_POST["ativo"];
+        $produto =      $_POST["produto"];
+        $preco =        $_POST["preco"];
+        $descricao =    $_POST["descricao"];
+        $ativo =        $_POST["ativo"];
 
-        $sql = "INSERT INTO produto (id_categoria, produto, preco, descricao, ativo_produto) VALUE ('$id_categoria ', '$produto', '$preco', '$descricao', '$ativo')";
+        $sql = "INSERT INTO produto (id_categoria, produto, preco, descricao, ativo_produto) VALUE ('$id_categoria ', '$produto', '$preco', '$descricao', '$ativo' )";
+        var_dump($sql);
         $qry = mysqli_query($conexao, $sql);
 
         if($qry) {
             header("Location:listaProduto.php");
         }else {
-            "Erro de dados" .mysqli_error($conexao);
+           echo "Erro de dados" .mysqli_error($conexao);
         }
     }
 ?>
@@ -38,8 +39,9 @@
             <?php 
                 $sql = "SELECT * FROM categoria";
                 $qry = mysqli_query($conexao, $sql);
+                
                 while($linha = mysqli_fetch_array($qry)) {
-                    echo "<option value=$linha[id_categoria]> $linha[categoria] </option>"; 
+                    echo '<option value="' .$linha['id_categoria'] .'"> ' .$linha['categoria'] .' </option>'; 
                 }
             ?>
         </select>
