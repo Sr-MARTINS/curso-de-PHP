@@ -4,7 +4,6 @@
     if(isset($_POST["btCadastro"])) {
         
         $id_categoria = $_POST["id"];
-        
 
         $sql = "DELETE  FROM categoria WHERE id_categoria = '$id_categoria' ";
         $qry = mysqli_query($conexao, $sql);

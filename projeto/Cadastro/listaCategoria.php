@@ -20,7 +20,7 @@
             <td>id</td>
             <td>Categoria</td>
             <td>ativo</td>
-            <td cospan="2">Opção</td>
+            <td cospan="2">Opções</td>
         </tr>
 
         <?php 
