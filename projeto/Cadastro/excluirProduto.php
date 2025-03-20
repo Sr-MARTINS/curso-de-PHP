@@ -4,13 +4,15 @@
 
     if(isset($_POST["deletar"])) {
         
-        $id_produto = $_POST["id"];
+        var_dump($_POST["deletar"]);
 
-        $sql = "DELETE  FROM produto WHERE id_produto = '$id_produto' ";
+        $id_produto = $_POST["id_produto"];
+
+        $sql = "DELETE FROM produto WHERE id_produto = '$id_produto' ";
         $qry = mysqli_query($conexao, $sql);
 
         if($qry) {
-            header("Location:listaCategoria.php");
+            header("Location:listaProduto.php");
         }else {
             echo "Não foi possivel Excluir o elemento " ."Erro apresentado" .mysqli_error($conexao);
         }
@@ -52,31 +54,27 @@
                 <td>id</td>
                 <td>Categoria</td>
                 <td>Produto</td>
-                <td>Ativo</td>
-                <td>Opções</td>
+                <td>Preço</td>
+                <td>Descrição</td>
+                <td>Ativo_Produto</td>
             </tr>
 
-            <?php 
-                $sql = "SELECT FROM produto";
-                $qry = mysqli_query($conexao, $sql);
-
-                while($linha = mysqli_fetch_array($qry)) {
-
-            ?>
-          
             <tr>
-                <td value="<?php echo $linha["id_produto"] ?>"></td>
-                <td value="<?php echo $linha["id_categoria"] ?>" ></td>
-                <td value="<?php echo $linha["produto"] ?>" ></td>
-                <td value="<?php echo $linha["preco"] ?>" ></td>
-                <td value="<?php echo $linha["descricao"] ?>" ></td>
-                <td value="<?php echo $linha["ativo_produto"] ?>" ></td> 
+                <td> <?php echo $linha["id_produto"] ?> </td>
+                <td> <?php echo $linha["id_categoria"] ?> </td>
+                <td> <?php echo $linha["produto"] ?> </td>
+                <td> <?php echo $linha["preco"] ?> </td>
+                <td> <?php echo $linha["descricao"] ?> </td>
+                <td> <?php echo $linha["ativo_produto"] ?> </td> 
             </tr>
 
-            <?php } ?>
-        </table>
+           
+        </table> <br>
 
-        <input type="submit" name="deletar" value="Deletar">
+        <form method="POST" >
+            <input type="hidden" name="id_produto" value="<?php echo $linha["id_produto"] ?>" >
+            <input type="submit" name="deletar" value="Deletar">
+        </form>
 </body>
 </html>
 
