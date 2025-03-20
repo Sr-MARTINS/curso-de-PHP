@@ -26,17 +26,22 @@
     <title>Novo Cadastro</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
+    
+
 </head>
 <body>
-    <form method="POST" action="">
-        <label for="categoria">Categoria</label>
-        <input type="text" name="intNovoItem">
+    <div>
+        <h1>Novo cadastro</h1>
+        <form method="POST" action="">
+            <label for="categoria">Categoria</label>
+            <input type="text" name="intNovoItem" >
 
-        <label for="ativo">Ativo</label>
-        <input type="text" name="valorItem">
+            <label for="ativo">Ativo</label>
+            <input type="text" name="valorItem">
 
-        <input type="hidden" name="enviado" value="ok">
-        <input type="submit" name="btCadastro" value="Cadastro">
-    </form>  
+            <input type="hidden" name="enviado" value="ok">
+            <input type="submit" name="btCadastro" value="Cadastro">
+        </form> 
+    </div>
 </body>
 </html>
