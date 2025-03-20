@@ -1,6 +1,23 @@
-<!DOCTYPE html>
-<?php  require("conexao.php"); ?>
+<?php
 
+    require("conexao.php"); 
+
+    @$id_categoria = $_POST["pesq_id_categoria"];
+    @$pesq_produto = $_POST["pesq_produto"];
+
+    if(($id_categoria != "") && ($pesq_produto != "")) {
+        @$where = "AND p.id_categoria = '$id_categoria' AND produto LIKE = '%$pesq_produto' ";
+    }else if(($id_categoria != "")) {
+        @$where = "AND p.id_categoria = '$id_categoria' ";
+    }else if(($pesq_produto != "")) {
+        @$where = "AND produto LIKE '%$pesq_produto' ";
+    }else {
+        @$where = "Nenhum";
+    }
+
+?>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -27,24 +44,18 @@
                     $qry = mysqli_query($conexao, $sql);
 
                     while($linha = mysqli_fetch_array($qry)) {
+                        if($linha["id_categoria"] == $id_categoria)
+                            $selecao = "selected";
+                        else 
+                            $selecao = "";
+
                         echo '<option value="' .$linha['id_categoria'] .'"> ' . $linha['categoria'] .' </option>';
                     }
                 ?>
             </select>
             
             <label for="peloProduto">Pelo Produto </label> 
-            <select name="pesq_produto">
-                <option value="">Selecione um Produto </option>
-
-                <?php 
-                    $sql = "SELECT * FROM produto";
-                    $qry = mysqli_query($conexao, $sql);
-
-                    while($linha = mysqli_fetch_array($qry)) {
-                        echo '<option value="' .$linha['id_produto'] .'"> ' . $linha['produto'] .' </option>';
-                    }
-                ?>
-            </select>
+            <input name="pesq_produto" value="<?php $linha["pesq_produto"]  ?>">
 
             <input type="submit" value="Pesquisado">
         </form>
@@ -62,7 +73,7 @@
 
         <?php 
                 
-                $sql = "SELECT * FROM produto p, categoria  c WHERE p.id_categoria = c.id_categoria ";
+                $sql = "SELECT * FROM produto p, categoria  c WHERE p.id_categoria = c.id_categoria $where";
                 $qry = mysqli_query($conexao, $sql);
 
             while ($linha = mysqli_fetch_array($qry)) {
