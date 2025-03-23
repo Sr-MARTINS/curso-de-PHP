@@ -30,9 +30,9 @@
 
 </head>
 <body>
-    <div>
+    <div class="d-flex justify-content-center  flex-column text-center">
         <h1>Novo cadastro</h1>
-        <form method="POST" action="">
+        <form method="POST" style="margin-top:1rem;" class="d-flex align-items-center justify-content-center flex-column">
             <label for="categoria">Categoria</label>
             <input type="text" name="intNovoItem" >
 

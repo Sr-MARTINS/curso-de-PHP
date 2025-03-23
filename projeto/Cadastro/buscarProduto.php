@@ -2,17 +2,17 @@
 
     require("conexao.php"); 
 
-    @$id_categoria = $_POST["pesq_id_categoria"];
-    @$pesq_produto = $_POST["pesq_produto"];
+    $id_categoria = $_GET["pesq_id_categoria"];
+    $pesq_produto = $_GET["pesq_produto"];
 
     if(($id_categoria != "") && ($pesq_produto != "")) {
-        @$where = "AND p.id_categoria = '$id_categoria' AND produto LIKE = '%$pesq_produto' ";
+        $where = "AND p.id_categoria = '$id_categoria' AND produto  == $pesq_produto ";
     }else if(($id_categoria != "")) {
-        @$where = "AND p.id_categoria = '$id_categoria' ";
+        $where = "AND p.id_categoria == '$id_categoria' ";
     }else if(($pesq_produto != "")) {
-        @$where = "AND produto LIKE '%$pesq_produto' ";
+        $where = "AND produto == $pesq_produto ";
     }else {
-        @$where = "Nenhum";
+        $where = "Nenhum";
     }
 
 ?>
@@ -34,8 +34,9 @@
 
     
 <div style="margin: 10px">
-        <form method="POST" >
-            <label for="pelaCategoria">Pela categoria</label> <br>
+        <form method="GET" >
+            
+            <label for="pelaCategoria">Pela categoria</label> 
             <select name="pesq_id_categoria" >
                 <option value="">Selecione uma categoria</option>
 
@@ -43,19 +44,15 @@
                     $sql = "SELECT * FROM categoria";
                     $qry = mysqli_query($conexao, $sql);
 
-                    while($linha = mysqli_fetch_array($qry)) {
-                        if($linha["id_categoria"] == $id_categoria)
-                            $selecao = "selected";
-                        else 
-                            $selecao = "";
-
-                        echo '<option value="' .$linha['id_categoria'] .'"> ' . $linha['categoria'] .' </option>';
+                    while ($linha = mysqli_fetch_array($qry)) {
+                        $selecao = ($linha['id_categoria'] == $id_categoria) ? "selected" : "";
+                        echo '<option value="' . $linha['id_categoria'] . '" ' . $selecao . '>' . $linha['categoria'] . '</option>';
                     }
                 ?>
             </select>
             
             <label for="peloProduto">Pelo Produto </label> 
-            <input name="pesq_produto" value="<?php $linha["pesq_produto"]  ?>">
+            <input name="pesq_produto" name="pesq_produto" value="<?php echo @$pesq_produto ?>">
 
             <input type="submit" value="Pesquisado">
         </form>
@@ -73,7 +70,7 @@
 
         <?php 
                 
-                $sql = "SELECT * FROM produto p, categoria  c WHERE p.id_categoria = c.id_categoria $where";
+                $sql = "SELECT * FROM produto p, categoria  c WHERE p.id_categoria = c.id_categoria" .$where;
                 $qry = mysqli_query($conexao, $sql);
 
             while ($linha = mysqli_fetch_array($qry)) {
