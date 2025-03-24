@@ -16,7 +16,7 @@
             <a class="flex-sm-fill text-sm-center nav-link" href="novoCadastro.php">Nova Categoria</a>
             <a class="flex-sm-fill text-sm-center nav-link" href="novoProduto.php">Cadastro de Produto</a>
             <a class="flex-sm-fill text-sm-center nav-link" href="buscarProduto.php">Busca de Produto</a>
-            <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
+            <a class="flex-sm-fill text-sm-center nav-link" href="pag_produto.php">Paginação</a>
         </nav>
     </header>
     

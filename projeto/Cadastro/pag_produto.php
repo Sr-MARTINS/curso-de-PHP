@@ -1,9 +1,55 @@
 <!DOCTYPE html>
 
 <?php
-    require("conexao.php"); 
+    require("conexao.php");
+    
+    if(isset($_GET["ordem"])) {
+        $ordem = $_GET["ordem"];
+    }else {
+        $ordem = 0;
+    }
 
-    $pesq = 
+    $pesq = mysqli_query($conexao, "SELECT id_produto FROM produto");
+    $total = mysqli_num_rows($pesq);
+
+    $lpp = 2 ; //linha por pg
+    $paginas = ceil($total / $lpp - 1);  //Determina o total de pg
+    $paginas_mostradas = ceil($total /$lpp); //Determina o total de pg mostrada
+
+    $ordem_mostradas = $ordem + 1;
+    $inicio = $ordem * $lpp;
+    
+    if($ordem == 0) {
+        $mais = $ordem + 1;
+        $url_mais = "pag_produto.php?ordem=$mais";
+        $paginacao = "Pagina $mais de $paginas_mostradas <br>
+                    <a href='$url_mais'> Proxima </a> | <a href='pag_produto.php?ordem=$paginas'> Última </a> ";   
+    }
+    if($ordem > 0) {
+        $mais = $ordem + 1;
+        $url_mais = "pag_produto.php?ordem=$mais";
+
+        $menos = $ordem - 1;
+        $url_menos = "pag_produto.php?ordem=$menos";
+
+        $paginacao = "Pagina $ordem_mostradas de $paginas_mostradas <br>
+                     <a href='pag_produto.php?ordem=0'> Primeira </a> | 
+                     <a href='$url_menos'> Anterior </a>  | 
+                     <a href='$url_mais'> Proxima </a> |
+                     <a href='pag_produto.php?ordem=$paginas'> Ultima </a> " ;
+    }
+    if($ordem == $paginas) {
+        $menos = $ordem - 1;
+        $url_menos = "pag_produto.php?ordem=$menos";
+
+        $paginacao = "Pagina $ordem_mostradas de $paginas_mostradas <br>
+                    <a href='pag_produto.php?ordem=0'> Primeira </a> |
+                    <a href='$url_menos'> Anterios </a> ";
+    }
+    if($paginas <= 0) {
+        $paginacao = "Pagina 1 de 1";   
+    }
+
 ?>
 
 <html lang="en">
@@ -50,7 +96,7 @@
 
                 <?php 
                         
-                        $sql = "SELECT * FROM produto p, categoria  c WHERE p.id_categoria = c.id_categoria ";
+                        $sql = "SELECT * FROM produto p, categoria  c WHERE p.id_categoria = c.id_categoria ORDER BY id_produto LIMIT $inicio, $lpp";
                         $qry = mysqli_query($conexao, $sql);
 
                     while ($linha = mysqli_fetch_array($qry)) {
@@ -72,6 +118,10 @@
                 <?php } ?>
 
             </table>
+
+            <div>
+                <?php echo $paginacao ?>
+            </div>
         </div>
 
     </main>
