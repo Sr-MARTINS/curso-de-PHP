@@ -1,23 +1,25 @@
-<?php
-    require ("conexao.php");
+<?php  //OK
+    require ("crud.php");
 
     if(isset( $_POST["btCadastro"] )) {
         
         $novoItem = $_POST["intNovoItem"];
         $ativo = $_POST["valorItem"];
 
-        $sql = "INSERT INTO categoria (categoria, atv_categoria) VALUE ('$novoItem', '$ativo')";
-        $qry = mysqli_query($conexao, $sql);
+        $dados = array (
+            "categoria"     => "$novoItem",
+            "atv_categoria" => "$ativo"
+        );
 
-        if($qry) {
+        $implimentacao = adicionar("categoria", $dados);
+
+        if($implimentacao) {
             header("Location:listaCategoria.php");
         }else {
-            echo "Erro: " .mysqli_error($conexao);
+            echo "Erro: " .mysqli_error();
         }
 
     }
-
-
 ?>
 
 <html lang="en">
@@ -25,8 +27,6 @@
     <meta charset="UTF-8">
     <title>Novo Cadastro</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-    
 
 </head>
 <body>

@@ -1,30 +1,33 @@
 <?php
-    require ("conexao.php");
+    // TERMINAR LINHA 22
+
+    require ("crud.php");
 
     if(isset($_POST["btCadastro"])) {
         
-        $id_categoria = $_POST["id"];
+        $id_categoria = $_GET["id"];
+        $delete = deletar("categoria", "id_categoria = $id_categoria" );
 
-        $sql = "DELETE  FROM categoria WHERE id_categoria = '$id_categoria' ";
-        $qry = mysqli_query($conexao, $sql);
-
-        if($qry) {
+        if($delete) {
             header("Location:listaCategoria.php");
         }else {
-            echo "Não foi possivel Excluir o elemento " ."Erro apresentado" .mysqli_error($conexao);
+            echo "Não foi possivel Excluir o elemento " ."Erro apresentado" .mysqli_error();
         }
 
     }
 
     else if (isset($_GET["id"])) {
+        $conexao = abrirConexao();
 
-        $sql =   "SELECT * FROM categoria WHERE id_categoria =" . $_GET["id"];
-        $qry =   mysqli_query($conexao, $sql);
-        $linha = mysqli_fetch_array($qry);
+        $sql   =   "SELECT * FROM categoria WHERE id_categoria =" . $_GET["id"];
+
+        $qry   =   executar($sql);
+        $linha =   @mysqli_fetch_array($qry);
 
         $id_categoria =  $linha["id_categoria"];
         $categoria =     $linha["categoria"];
         $atv_categoria = $linha["atv_categoria"]; 
+
     }
 
 ?>

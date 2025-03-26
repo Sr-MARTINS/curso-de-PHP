@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<?php  require("conexao.php"); ?>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -43,20 +41,23 @@
                     <td cospan="2">Opção</td>
                 </tr>
 
+                    <!-- "Ok "-->
                 <?php 
+                        require("crud.php");
+                        $conexao = abrirConexao();
                         
                         $sql = "SELECT * FROM produto p, categoria  c WHERE p.id_categoria = c.id_categoria ";
-                        $qry = mysqli_query($conexao, $sql);
+                        $qry = executar($sql);
 
                     while ($linha = mysqli_fetch_array($qry)) {
                 ?>
                     <tr>    
                         
-                        <td> <?php echo $linha["id_produto"] ?>  </td>
-                        <td> <?php echo $linha["categoria"] ?> </td>
-                        <td> <?php echo $linha["produto"] ?> </td>
-                        <td> <?php echo $linha["preco"] ?> </td>
-                        <td> <?php echo $linha["ativo_produto"] ?> </td>
+                        <td> <?= $linha["id_produto"] ?>  </td>
+                        <td> <?= $linha["categoria"] ?> </td>
+                        <td> <?= $linha["produto"] ?> </td>
+                        <td> <?= $linha["preco"] ?> </td>
+                        <td> <?= $linha["ativo_produto"] ?> </td>
 
                         <td> <a href="editarProduto.php?id=<?php echo $linha["id_produto"] ?>"> Editar
                         / <a href="excluirProduto.php?id=<?php echo $linha["id_produto"] ?>"> Excluir</td>

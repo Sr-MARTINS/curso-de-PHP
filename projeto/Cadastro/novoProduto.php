@@ -1,6 +1,5 @@
-<?php
-
-    require ("conexao.php");
+<?php // OK
+    require ("crud.php");
 
     if(isset($_POST["btCadastro"])) {
         $id_categoria = $_POST["txt_id_categoria"];
@@ -9,11 +8,17 @@
         $descricao =    $_POST["descricao"];
         $ativo =        $_POST["ativo"];
 
-        $sql = "INSERT INTO produto (id_categoria, produto, preco, descricao, ativo_produto) VALUE ('$id_categoria ', '$produto', '$preco', '$descricao', '$ativo' )";
-        var_dump($sql);
-        $qry = mysqli_query($conexao, $sql);
+        $dados = array (
+            "id_categoria"   => "$id_categoria",
+            "produto"        => "$produto",
+            "preco"          => "$preco",
+            "descricao"      => "$descricao",
+            "ativo_produto"  => "$ativo",
+        );
 
-        if($qry) {
+        $implimentacao = adicionar("produto", $dados);
+
+        if($implimentacao) {
             header("Location:listaProduto.php");
         }else {
            echo "Erro de dados" .mysqli_error($conexao);
@@ -28,23 +33,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Novo Produto</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
 </head>
 <body>
     <h2>Novo Produto</h2>
     <form method="POST">
+
         <label for="categoria">Categoria</label>
         <select name="txt_id_categoria">
+
             <option value="">Selecione uma opção</option>
+
             <?php 
                 $sql = "SELECT * FROM categoria";
-                $qry = mysqli_query($conexao, $sql);
+                $qry = executar($sql);
                 
                 while($linha = mysqli_fetch_array($qry)) {
                     echo '<option value="' .$linha['id_categoria'] .'"> ' .$linha['categoria'] .' </option>'; 
                 }
             ?>
+
         </select>
+
         <br>
 
         <label for="produto">Produto</label>

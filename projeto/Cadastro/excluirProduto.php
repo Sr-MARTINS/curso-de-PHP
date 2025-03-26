@@ -1,17 +1,12 @@
-<?php
-    
-    require ("conexao.php");
+<?php   //OK - verificar linha 20
+    require ("crud.php");
 
     if(isset($_POST["deletar"])) {
-        
-        var_dump($_POST["deletar"]);
 
         $id_produto = $_POST["id_produto"];
+        $delete = deletar("produto", "id_produto = $id_produto");
 
-        $sql = "DELETE FROM produto WHERE id_produto = '$id_produto' ";
-        $qry = mysqli_query($conexao, $sql);
-
-        if($qry) {
+        if($delete) {
             header("Location:listaProduto.php");
         }else {
             echo "Não foi possivel Excluir o elemento " ."Erro apresentado" .mysqli_error($conexao);
@@ -20,8 +15,10 @@
     }
     
     else if (isset($_GET["id"])) {
+
         $sql = "SELECT * FROM produto WHERE id_produto =" .$_GET["id"];
-        $qry = mysqli_query($conexao, $sql);
+        // $consult = consulta("produto", "'id_produto = .$_GET["id"]"'"' )  ;
+        $qry = executar($sql);
         $linha = mysqli_fetch_array($qry);
 
         $id_produto =    $linha["id_produto"];

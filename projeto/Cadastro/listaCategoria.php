@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<?php  require("conexao.php"); ?>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,23 +21,25 @@
             <td cospan="2">Opções</td>
         </tr>
 
-        <?php 
-                
+        <?php  // OLHAR 28 linha
+            require("crud.php"); 
+            
+            // $consult = consulta("categoria");
             $sql = "SELECT * FROM categoria";
-            $qry = mysqli_query($conexao, $sql);
+            $qry = executar($sql);
 
             while ($linha = mysqli_fetch_array($qry)) {
         ?>
-            <tr>    
+        <tr>    
 
-                <td> <?= $linha["id_categoria"] ?>  </td>
-                <td> <?php echo $linha["categoria"] ?> </td>
-                <td> <?php echo $linha["atv_categoria"] ?> </td>
+            <td><?=$linha["id_categoria"] ?></td>
+            <td><?= $linha["categoria"] ?> </td>
+            <td><?= $linha["atv_categoria"] ?></td>
 
-                <td> <a href="editar.php?id=<?php echo $linha["id_categoria"] ?>"> Editar</td>
-                <td> <a href="excluir.php?id=<?php echo $linha["id_categoria"] ?>"> Excluir</td>
+            <td> <a href="editar.php?id=<?= $linha["id_categoria"] ?>"> Editar</td>
+            <td> <a href="excluir.php?id=<?= $linha["id_categoria"] ?>"> Excluir</td>
                 
-            </tr>
+        </tr>
         
         <?php } ?>
     </table>
