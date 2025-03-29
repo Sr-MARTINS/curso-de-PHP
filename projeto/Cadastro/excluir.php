@@ -11,18 +11,13 @@
         if($delete) {
             header("Location:listaCategoria.php");
         }else {
-            echo "Não foi possivel Excluir o elemento " ."Erro apresentado" .mysqli_error();
+            echo "Não foi possivel Excluir o elemento " ."Erro apresentado" .mysqli_error($delete);
         }
-
     }
 
     else if (isset($_GET["id"])) {
-        $conexao = abrirConexao();
 
-        $sql   =   "SELECT * FROM categoria WHERE id_categoria =" . $_GET["id"];
-
-        $qry   =   executar($sql);
-        $linha =   @mysqli_fetch_array($qry);
+        $linha =  identificar("categoria", $_GET["id"]);
 
         $id_categoria =  $linha["id_categoria"];
         $categoria =     $linha["categoria"];

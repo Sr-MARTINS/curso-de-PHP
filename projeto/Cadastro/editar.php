@@ -23,14 +23,8 @@
 
     }
     else if (isset($_GET["id"])) {
-        // $id = $_GET["id"];
-        
-        // $consult = consulta("categoria", "id_categoria = " .$_GET["id"]);
-        // $qry = executar($consult);
-        
-        $sql = "SELECT * FROM categoria WHERE id_categoria = " .$_GET["id"];
-        $qry = executar($sql);
-        $linha = @mysqli_fetch_array($qry);
+
+        $linha = identificar("categoria", $_GET["id"]);
 
         $id_categoria = $linha["id_categoria"];
         $categoria    = $linha["categoria"];

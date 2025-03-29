@@ -1,4 +1,4 @@
-<?php   //OK - verificar linha 20
+<?php 
     require ("crud.php");
 
     if(isset($_POST["deletar"])) {
@@ -11,15 +11,11 @@
         }else {
             echo "Não foi possivel Excluir o elemento " ."Erro apresentado" .mysqli_error($conexao);
         }
-
     }
     
     else if (isset($_GET["id"])) {
 
-        $sql = "SELECT * FROM produto WHERE id_produto =" .$_GET["id"];
-        // $consult = consulta("produto", "'id_produto = .$_GET["id"]"'"' )  ;
-        $qry = executar($sql);
-        $linha = mysqli_fetch_array($qry);
+        $linha = identificar("produto", $_GET["id"])
 
         $id_produto =    $linha["id_produto"];
         $id_categoria =  $linha["id_categoria"];

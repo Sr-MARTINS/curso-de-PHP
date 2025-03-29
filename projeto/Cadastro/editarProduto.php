@@ -27,11 +27,8 @@
         }
     }
     else if (isset($_GET["id"])) {
-        // $conexao = abrirConexao()
 
-        $sql = "SELECT * FROM produto WHERE id_produto =" .$_GET["id"];
-        $qry = mysqli_query($conexao, $sql);
-        $linha = mysqli_fetch_array($qry);
+        $linha = identificar("produto", $_GET["id"]);
 
         $id_produto = $linha["id_produto"];
         $id_categoria = $linha["id_categoria"];

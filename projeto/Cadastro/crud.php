@@ -14,11 +14,17 @@
         return $conexao;
     };
 
+    function identificar($tabela, $id){
+        $linha = consulta($tabela, "WHERE id_$tabela = $id", "*");
+
+        return $linha;
+    }
+
     function consulta($tabela, $condicao = null, $campo) {
         $sql = "SELECT $campo FROM $tabela  $condicao";
-        $qry = executar($ql);
+        $qry = executar($sql);
 
-        return $qry;
+        return mysqli_fetch_array($qry);
     }
 
     function executar($sql) {

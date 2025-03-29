@@ -16,7 +16,7 @@
         if($implimentacao) {
             header("Location:listaCategoria.php");
         }else {
-            echo "Erro: " .mysqli_error();
+            echo "Erro: " .mysqli_error($implimentacao);
         }
 
     }
