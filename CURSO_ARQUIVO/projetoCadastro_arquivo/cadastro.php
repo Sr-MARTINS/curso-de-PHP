@@ -1,9 +1,3 @@
-<?php
-   include("funcao_id.php");
-    echo novo_id();
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
