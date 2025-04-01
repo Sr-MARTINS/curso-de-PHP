@@ -13,6 +13,14 @@
         <div id="boxTable">
             <table class="table table-striped text-align-center">
             <thead>
+                <?php
+
+                    $dados = file("cliente.txt");
+                    $quant = count($dados);
+                    @$id = $_GET["id"];
+
+                    if($quant != 0) {
+                ?>
                 <tr>
                     <th scope="col">Nome</th>
                     <th scope="col">Email</th>
@@ -21,34 +29,21 @@
                 </tr>
             </thead>
             <tbody>
-                <?php
-                    // require_once("crud.php");
-
-                    // $qyr = consultarTabela("cliente");
-                    // $id = $_GET["id"];
-
-                    // if(isset($_POST["delt"])) {
-                    //     delete("cliente", "id_cliente = $id") ;
-                    //     header("Location:index.php?link=5");
-                    // }
-                    
-                    // while($linha = mysqli_fetch_array($qyr)) {
+                <?php 
+                    for($i = 0; $i < $quant; $i++) {
+                        $linha = explode("\t", $dados[$i]);
                 ?>
                     <tr>
-                        <td><?php echo $linha["nome"]  ?></td>
-                        <td><?php echo $linha["email"] ?></td>
-                        <td><?php echo $linha["telefone"]  ?></td>
+                        <td><?php echo $linha[1] ?></td>
+                        <td><?php echo $linha[2] ?></td>
+                        <td><?php echo $linha[3] ?></td>
                         <td>
-                            <form method="POST">
-                                <input type="hidden" name="id_cliente" value="<?php echo $linha["id_cliente"] ?>">
-                                <a>
-                                   <input type="submit" name="delt" value="delete">
-                               </a> 
-                            </form>
+                            <a href="index.php?link=2&acao=Excluir&id=<?php echo $linha[0] ?>">Excluir</a>
                         </td>
-                    </tr>  
-                
-                  
+                    </tr>
+
+                <?php } }  ?>
+
             </tbody>
             </table>
         </div>

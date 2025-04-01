@@ -1,3 +1,24 @@
+<?php
+
+    @$id = $_GET["id"];
+    @$acao = $_GET["acao"];
+
+    if($id != ""){
+        $arquivo = file("cliente.txt");
+        $linha = 0;
+        foreach($arquivo as $dados) {
+            list($codigo, $nome, $email, $telefone) = explode("\t", $dados);
+            if($codigo == $id) {
+                // echo $nome;
+                break;
+            }
+            $linha++ ;
+        }
+        
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,17 +35,22 @@
     <form action="opCadastro.php" method="POST">
         <div id="boxForm">            
                 <label for="nome">Nome</label>
-                <input type="text" name="nome"  >
+                <input type="text" name="nome" value="<?= isset($nome) ? $nome : "" ?>">
                 
                 <label for="email">Email</label>
-                <input type="text" name="email"  >
+                <input type="text" name="email" value="<?= isset($email) ? $email : "" ?>">
                 
                 <label for="email">Telefone</label> 
-                <input type="number" name="telefone">
+                <input type="text" name="telefone" value="<?= isset($telefone) ? $telefone : "" ?>">
         </div> 
         <div id="buttns">
-            <input type="submit" class="btn btn-success"  >
-            <!-- <input type="reset" name="Reset" class="btn btn-secondary"> -->
+
+            <input type="hidden" name="acao" value="<?= isset($acao)?$acao:"Cadastrar"; ?>">
+            <input type="hidden" name="linha" value="<?= $linha ?>">
+            <input type="hidden" name="id" value="<?= $id ?>">
+
+            <input type="submit" class="btn btn-success" value="<?= isset($acao) ? $acao : "Cadastrar"; ?>" >
+
         </div>
     </form>
     </div>
