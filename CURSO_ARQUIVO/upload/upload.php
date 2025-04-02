@@ -3,7 +3,7 @@
     var_dump($_FILES);
 
     $tamanho_max = 200000;
-    $caminho = "C:\xampp\htdocs\cursoPHP\CURSO_ARQUIVO\upload\destino";
+    $caminho = "C:/xampp/htdocs/cursoPHP/CURSO_ARQUIVO/upload/destino";
     
     $nome_arquivo = $_FILES['arquivo']["name"];
     $tamanho_arquivo = $_FILES['arquivo']["size"];
