@@ -1,3 +1,11 @@
+<?php
+
+  require("../back/include/config.php");
+  require("../back/include/crud.php");
+
+  openConnect();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
