@@ -1,0 +1,59 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing:border-box ;
+}
+    /* Menu - campo li - link */
+header ul, li, a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 5px 10px;
+    letter-spacing: 2px;
+    font-size: 1.1rem;
+}
+#contHome {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 1.6rem auto;
+    /* border: 1px solid black; */
+}
+#contHome h3 {
+    border-bottom: 1px solid black;
+    width: 80%;
+    text-align: center;
+    padding: 10px;
+    letter-spacing: 5px;
+    font-size: 1.9rem;
+
+}
+#contHome #boxCard {
+    display: grid;
+    grid-template-columns:200px 200px ;
+    gap:50px 80px;
+    margin: 1rem  0 2rem 0;
+
+}
+#contHome #boxCard  .card_bt{
+    width: 170px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid grey;
+    border-radius: 1rem;
+    transition: .7s;
+    padding: 10px;
+}
+#contHome #boxCard  .card_bt:hover {
+    cursor: pointer;
+    box-shadow: 3px 3px 3px 5px #00000013;
+
+}
+#contHome #boxCard  .card_bt img {
+    width: 80%;
+}

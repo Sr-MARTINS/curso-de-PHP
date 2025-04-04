@@ -1,7 +1,7 @@
 <?php
 
-  require("../back/include/config.php");
-  require("../back/include/crud.php");
+  require("include/config.php");
+  require("include/crud.php");
 
   openConnect();
 ?>
@@ -36,7 +36,7 @@
               <h2>Ciclo de estudo</h2>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, pariatur ullam nemo quas ex amet.</p>
             </div>
-            <form class="d-flex flex-column" action="../back/cadastro.php" method="POST">
+            <form class="d-flex flex-column" action="cadastro.php" method="POST">
                 <label for="nome">Nome:</label>
                 <input type="text" name="intName" placeholder="Nome">
                 
@@ -47,6 +47,9 @@
 
                 <button type="submit" class="btn active" role="button" data-bs-toggle="button" aria-pressed="true" > Click </button>
             </form>
+                
+                <!-- {Login}  - Aria admistrativa  -->
+                 <a href="areaAdm.php">Admistração Lista</a>
         </div>
     </main>
     

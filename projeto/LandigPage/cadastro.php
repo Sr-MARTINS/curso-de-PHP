@@ -1,6 +1,6 @@
 <?php
-    require("../back/include/config.php");
-    require("../back/include/crud.php");
+    require("include/config.php");
+    require("include/crud.php");
 
     $nome       = $_POST["intName"];
     $email      = $_POST["intEmail"];
