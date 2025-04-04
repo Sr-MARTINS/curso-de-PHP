@@ -36,12 +36,14 @@
               <h2>Ciclo de estudo</h2>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, pariatur ullam nemo quas ex amet.</p>
             </div>
-            <form class="d-flex flex-column" action="" method="POST">
+            <form class="d-flex flex-column" action="../back/cadastro.php" method="POST">
                 <label for="nome">Nome:</label>
                 <input type="text" name="intName" placeholder="Nome">
                 
                 <label for="email">Email:</label>
                 <input type="text" name="intEmail" placeholder="Email">
+
+                <input type="hidden" name="id_produto" value="1">
 
                 <button type="submit" class="btn active" role="button" data-bs-toggle="button" aria-pressed="true" > Click </button>
             </form>

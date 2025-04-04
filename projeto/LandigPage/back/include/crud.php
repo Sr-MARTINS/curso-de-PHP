@@ -14,38 +14,58 @@
         return $conexao;
     }
 
-        //escala consulta de tabela
-        function identificar($tabela, $id){
-            $linha = consulta($tabela, "WHERE id_$tabela = $id", "*");
-    
-            return $linha;
-        }
-    
-        function consulta($tabela, $condicao = null, $campo) {
-            $sql = "SELECT $campo FROM $tabela  $condicao";
-            $qry = executar($sql);
-    
-            return mysqli_fetch_array($qry);
-        }
-
-
         // executando query
-    function executar($sql) {
+    function executar($sql, $id = false) {
         $conexao = openConnect();
-        $qry = mysqli_query($conexao, $sql) or die (mysqli_error($conexao));
+        $qry = @mysqli_query($conexao, $sql) or die (mysqli_error($conexao));
 
-        closeConnect($conexao)
+        if ($id) 
+            $qry = mysqli_insert_id($conexao);
+        
+
+        closeConnect($conexao);
         return $qry;
     }
 
+
+        //consultando 
+    function consultar($tabela, $condicao=null, $campos = "*") {
+        $condicao = ($condicao != null) ? " WHERE " . $condicao : "";
+
+        $sql = "SELECT {$campos} FROM {$tabela} {$condicao}";
+
+        $qry = executar($sql);
+
+        if (!mysqli_num_rows($qry)) {
+            return false;
+        }else {
+            while ($linha = mysqli_fetch_assoc($qry)) {
+                $dados[] = $linha;
+            }
+        return $dados;
+        }
+    } 
+
+
         //adicionando item
-    function adicionar($tabela, $dados) {
-        $campo = implode(",", "$dados");
-        $valor = "'" .implode("','", $dados) ."'";
+    // function inserir($tabela, array $dados, $id = false) {
+    //     $valies = escapa($valies);
+    //     $campos = implode(",", array_keys($valies));
+    //     $valores = "'" .implode("','", $dados) ."'";
 
-        $sql = "INSERT INTO $tabela $campo VALUES $valor";
+    //     $sql = "INSERT INTO $tabela $campo VALUES $valores";
 
+    //     return executar($sql, $id);
+    // }
+
+    function inserir($tabela, array $dados) {
+        $campos = implode(",", array_keys($dados));
+        $valores = "'" .implode("' ,'", $dados) ."'";
+
+        $sql = "INSERT INTO $tabela ({$campos}) VALUES ({$valores})";
+       
         return executar($sql);
+
     }
 
         //atualizando item  
@@ -57,7 +77,7 @@
         $campo = implode(",", $campo);
         $sql = "UPDATE $tabela SET $campo WHERE $condicao";
 
-        return executar($sql)
+        return executar($sql);
     }
 
     
