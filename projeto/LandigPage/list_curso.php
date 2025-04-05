@@ -28,16 +28,15 @@
                         <th scope="col">Tipo</th>
                         <th scope="col">Ativo</th>
                         <th scope="col">Ação</th>
-                        <th style="text-aling:center">
-                            <a href="#">Editar</a> /  <a href="#">Exluir</a> 
-                        </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
+                        <td>Video 1</td>
+                        <td>231</td>
+                        <td>Y</td>
+                        <td>S</td>
                         
                         <td style="text-aling:center">
                             <a href="#">Editar</a> /
@@ -46,9 +45,11 @@
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
+                        <th scope="row">1</th>
+                        <td>Video 1</td>
+                        <td>231</td>
+                        <td>Y</td>
+                        <td>S</td>
                         
                         <td style="text-aling:center">
                             <a href="#">Editar</a> /
