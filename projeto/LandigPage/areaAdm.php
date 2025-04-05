@@ -15,10 +15,10 @@
         </div>
         <nav>
             <ul>
-                <li><a href="areaAdm?link=1">Home</a></li>
-                <li><a href="areaAdm?link=2">Clientes</a></li>
-                <li><a href="areaAdm?link=3">Curso</a></li>
-                <li><a href="areaAdm?link=4">Modulo</a></li>
+                <li><a href="areaAdm.php?link=1">Home</a></li>
+                <li><a href="areaAdm.php?link=2">Clientes</a></li>
+                <li><a href="areaAdm.php?link=3">Curso</a></li>
+                <li><a href="areaAdm.php?link=4">Modulo</a></li>
             </ul>
         </nav>
         <div>
@@ -28,16 +28,24 @@
         </div>
     </header>
     <main style="border: 1px solid #000; width:80%; margin:2rem auto"; >
-        <p>oi</p>
 
         <?php
-            $link = $_GET["link"];
+            @$link = $_GET["link"];
 
             $pag["1"] = "home.php";
-            $pag["2"] = "cliente.php";
-            $pag["3"] = "editar.php";
-            $pag["4"] = "deletar.php";
-            $pag["5"] = "lista.php";
+            $pag["2"] = "cadastrarCliente.php";
+            $pag["3"] = "list_curso.php";
+            $pag["4"] = "list_modulos.php";
+
+            if(!empty($link)) {
+                if(file_exists($pag["$link"])) {
+                    include $pag["$link"];
+                }else {
+                    include "home.php";
+                }
+            }else {
+                include "home.php";
+            }
         ?>
     
     </main>

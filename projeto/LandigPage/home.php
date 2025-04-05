@@ -17,19 +17,27 @@
                 
         <div id="boxCard" style="display: grid; grid-template-columns: 200px 200px; gap: 80px; margin:1rem 0">
             <div class="card_bt">
-                <img src="img/client.png" alt="">
+                <a href="areaAdm.php?link=1">
+                    <img src="img/client.png" alt="">
+                </a>
                 <p>Cliente</p>
             </div>
             <div class="card_bt">
-                <img src="img/play.png" alt="">
+               <a href="areaAdm.php?link=2">
+                    <img src="img/play.png" alt="">
+               </a> 
                 <p>Aula</p>
             </div>
             <div class="card_bt">
-                <img src="img/aula.png" alt="">
+                <a href="areaAdm.php?link=3">
+                    <img src="img/aula.png" alt="">
+                </a>
                 <p>Curso</p>
             </div>
             <div class="card_bt">
-                <img src="img/demanda.png"  alt="">
+                <a href="areaAdm.php?link=4">
+                    <img src="img/demanda.png"  alt="">
+                </a>
                 <p>Módulos</p>
             </div>
         </div>
