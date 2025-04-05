@@ -1,3 +1,6 @@
+<?php
+    @$acao = $_GET["acao"];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,28 +30,30 @@
             
             <div style="padding:20px 20px 20px 30px; border:1px solid #a8a6a6; border-radius: .5rem; ; overflow-x: auto">
                 
-            <form>
+            <form action="opCliente.php" method="POST">
                 <div class="mb-3">
                     <label for="Nome" class="form-label">Nome:</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="text" name="intName" class="form-control">
                 </div>
                 <div class="mb-3">
-                    <label for="Email   " class="form-label">Email :</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <label for="Email" class="form-label">Email :</label>
+                    <input type="text" name="intEmail" class="form-control">
                 </div>
                 <div class="mb-3" style="display:flex; justify-content: space-evenly;">
                     <div style="display:flex; flex-direction: column">
-                        <label for="Endereço" class="form-label">Endereço:</label>
-                        <input style="width:200px" type="password" class="form-control" id="exampleInputPassword1">
+                        <label for="endereço" class="form-label">Endereço:</label>
+                        <input style="width:200px" type="text" name="intEndereco" class="form-control">
                     </div>
                     <div style="display:flex; flex-direction: column">
                         <label for="Fone" class="form-label">Fone:</label>
-                        <input style="width:200px" type="password" class="form-control" id="exampleInputPassword1">
+                        <input style="width:200px" type="number" name="telefone" class="form-control">
                     </div>
                 </div>
-                <button style="margin-top:2rem;"  type="submit"  class="btn btn-success">
-                    Cadastrar Cliente
-                </button>
+
+                <input type="hidden" name="id">
+                <input type="hidden" name="acao" value="<?php if(@$acao != ""){echo $acao;}else{ echo "Cadastrar";} ?>">
+
+                <input type="submit" class="btn btn-success" style="margin-top:2rem;" value="<?php if(@$acao != "") {echo $acao;}else{echo "Cadastrar Cliente";}?>">
             </form>
             </div>
         </div>

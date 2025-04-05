@@ -16,10 +16,17 @@
             <nav class="navbar bg-body" style="backgrond-color:grey; border-bottom: 1px solid #a8a6a6; padding: 1.6rem 10px ; ">
             <div class="container-fluid">
                 <a style="font-size:1.7rem ;"class="navbar-brand">Clientes</a>
-                <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+
+                <form action="opcliente.php" method="GET" class="d-flex" role="search">
+                    
+                    <input type="text" name="busca"  class="form-control me-2"  placeholder="Search" >
+                    <input type="hidden" name="link" value="2" >
+
+                    <button type="submit" name="submit"  class="btn btn-outline-success" >
+                        Search
+                    </button>
                 </form>
+
             </div>
             </nav>
         </div>
@@ -27,7 +34,7 @@
         <div style="padding:20px ; height: 300px">
             <div style="margin:10px;">
                 <button class="btn btn-success" >
-                    <a style="color: #fff" href="frm_cliente.php">Cadastrar Cliente</a>
+                    <a  href="areaAdm.php?link=6" style="color: #fff">Cadastrar Cliente</a>
                     
                 </button>
             </div>
@@ -42,28 +49,29 @@
                     </tr>
                 </thead>
                 <tbody>
+
+                    <?php
+
+                        $clientes = consultar("cliente");
+                        foreach($clientes as $cliente) {
+
+                    ?>
+
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        
-                        <td style="text-aling:center">
-                            <a href="#">Editar</a> /
-                            <a href="#">Excluir</a>  
-                            <!-- <a href="#">Matricular</a> -->
+                        <th><?= $cliente["id_cliente"] ?> </th>
+                        <td><?= $cliente["cliente"] ?> </td>
+                        <td><?= $cliente["email"] ?> </td>
+                        <td><?= $cliente["data"] ?> </td>
+                        <td>
+                            <a href="areaAdm.php?link=6&acao=Editar">Editar</a> /
+                            <a href="areaAdm.php?link=6&acao=Excluir">Excluir</a>  
                         </td>
+
+                        <td><a href="frm_cliente.php">ir</a></td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        
-                        <td style="text-aling:center">
-                            <a href="#">Editar</a> /
-                            <a href="#">Excluir</a>  
-                            <!-- <a href="#">Matricular</a> -->
-                        </td>
-                    </tr>
+
+                    <?php } ?>
+                    
                 </tbody>
                 </table>
             </div>

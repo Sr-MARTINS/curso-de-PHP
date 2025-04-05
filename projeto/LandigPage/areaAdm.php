@@ -1,3 +1,11 @@
+<?php
+
+  require("include/config.php");
+  require("include/crud.php");
+
+  openConnect();
+?> 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +27,8 @@
                 <li><a href="areaAdm.php?link=2">Clientes</a></li>
                 <li><a href="areaAdm.php?link=3">Aulas</a></li>
                 <li><a href="areaAdm.php?link=4">Modulo</a></li>
+                <li><a href="areaAdm.php?link=5"></a></li>
+                <li><a href="areaAdm.php?link=6"></a></li>
             </ul>
         </nav>
         <div>
@@ -38,6 +48,7 @@
             $pag["4"] = "listas/list_curso.php";
             $pag["5"] = "listas/list_modulos.php";
             $pag["6"] = "frm_cliente.php";
+            $pag["7"] = "frm_aula.php";
 
 
             if(!empty($link)) {
