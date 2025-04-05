@@ -12,15 +12,14 @@
             Lista de Curso
         </h3>
 
-        <div style="padding:20px ; height: 300px">
-            <div style="margin:10px;">
-                <button class="btn btn-success" >
+        <div style=" height: 300px">
+            <div style="margin:5px 0 10px 0;">
+                <button class="btn btn-success" style="padding:1px ;" >
                     <a style="color: #fff" href="cadastrarCliente.php">Cadastrar Curso</a>       
                 </button>
             </div>
-            <div style="padding:20px 20px 20px 30px; border:1px solid #a8a6a6; border-radius: .5rem; ; overflow-x: auto">
+            <div style="padding:10px 10px 10px 20px; border:1px solid #a8a6a6; border-radius: .5rem; ; overflow-x: auto;  " >
                 <table class="table" style="overflow-x: auto;">
-                <thead>
                     <tr>
                         <th scope="col">Id</th>
                         <th scope="col">Titulo da aula</th>
@@ -29,8 +28,32 @@
                         <th scope="col">Ativo</th>
                         <th scope="col">Ação</th>
                     </tr>
-                </thead>
-                <tbody>
+
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Video 1</td>
+                        <td>231</td>
+                        <td>Y</td>
+                        <td>S</td>
+                        
+                        <td style="text-aling:center">
+                            <a href="#">Editar</a> <a href="#">Excluir</a>  
+                            <!-- <a href="#">Matricular</a> -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Video 1</td>
+                        <td>231</td>
+                        <td>Y</td>
+                        <td>S</td>
+                        
+                        <td style="text-aling:center">
+                            <a href="#">Editar</a> /
+                            <a href="#">Excluir</a>  
+                            <!-- <a href="#">Matricular</a> -->
+                        </td>
+                    </tr>
                     <tr>
                         <th scope="row">1</th>
                         <td>Video 1</td>
@@ -57,7 +80,19 @@
                             <!-- <a href="#">Matricular</a> -->
                         </td>
                     </tr>
-                </tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Video 1</td>
+                        <td>231</td>
+                        <td>Y</td>
+                        <td>S</td>
+                        
+                        <td style="text-aling:center">
+                            <a href="#">Editar</a> /
+                            <a href="#">Excluir</a>  
+                            <!-- <a href="#">Matricular</a> -->
+                        </td>
+                    </tr>
                 </table>
             </div>
         </div>

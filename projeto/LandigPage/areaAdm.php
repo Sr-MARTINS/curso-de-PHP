@@ -17,7 +17,7 @@
             <ul>
                 <li><a href="areaAdm.php?link=1">Home</a></li>
                 <li><a href="areaAdm.php?link=2">Clientes</a></li>
-                <li><a href="areaAdm.php?link=3">Curso</a></li>
+                <li><a href="areaAdm.php?link=3">Aulas</a></li>
                 <li><a href="areaAdm.php?link=4">Modulo</a></li>
             </ul>
         </nav>
@@ -27,15 +27,18 @@
         </button>
         </div>
     </header>
-    <main style="border: 1px solid #000; width:80%; margin:2rem auto"; >
+    <main style="border: 1px solid #000; margin:2rem auto"; >
 
         <?php
             @$link = $_GET["link"];
 
             $pag["1"] = "home.php";
-            $pag["2"] = "cadastrarCliente.php";
-            $pag["3"] = "list_curso.php";
-            $pag["4"] = "list_modulos.php";
+            $pag["2"] = "listas/list_cliente.php";
+            $pag["3"] = "listas/list_aulas.php";
+            $pag["4"] = "listas/list_curso.php";
+            $pag["5"] = "listas/list_modulos.php";
+            $pag["6"] = "frm_cliente.php";
+
 
             if(!empty($link)) {
                 if(file_exists($pag["$link"])) {

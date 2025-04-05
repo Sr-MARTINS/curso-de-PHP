@@ -15,10 +15,10 @@
         <div style="margin-top:3rem;">
             <div style="margin:10px;">
                 <button  class="btn btn-secondary">
-                    <a style="color: #fff" href="cadastrarCliente.php">Dados Pessoais</a>
+                    <a href="areaAdm.php?link=2" style="color: #fff">Voltar</a>
                 </button>
                 <button  class="btn btn-secondary" >
-                    <a style="color: #fff" href="cadastrarCliente.php">Configurações</a>
+                    <a href="cadastrarCliente.php" style="color: #fff">Configurações</a>
                 </button>
             </div>
         </div>

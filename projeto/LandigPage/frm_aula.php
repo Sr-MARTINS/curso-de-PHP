@@ -12,6 +12,12 @@
            Cadastrar Aula
         </h3>
 
+        <div style="margin:22px 0 10px 22px;">
+                <button class="btn btn-success">
+                    <a style="color: #fff" href="areaAdm.php?link=3">Voltar</a>
+                </button>
+            </div>
+
         <div style="padding:20px ;">
             
             <div style="padding:20px 20px 20px 30px; border:1px solid #a8a6a6; border-radius: .5rem; ; overflow-x: auto">
@@ -75,6 +81,7 @@
                 <button style="margin-top:2rem;"  type="submit"  class="btn btn-success">
                     Cadastrar Aula
                 </button>
+                
             </form>
             </div>
         </div>
