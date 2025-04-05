@@ -15,10 +15,10 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Clientes</a></li>
-                <li><a href="#">Curso</a></li>
-                <li><a href="#">Modulo</a></li>
+                <li><a href="areaAdm?link=1">Home</a></li>
+                <li><a href="areaAdm?link=2">Clientes</a></li>
+                <li><a href="areaAdm?link=3">Curso</a></li>
+                <li><a href="areaAdm?link=4">Modulo</a></li>
             </ul>
         </nav>
         <div>
@@ -27,28 +27,18 @@
         </button>
         </div>
     </header>
-    <main>
-        <div id="contHome">
-        <h3>Home</h3>
-        <div id="boxCard">
-            <div class="card_bt">
-                <img src="img/client.png" alt="">
-                <p>Cliente</p>
-            </div>
-            <div class="card_bt">
-                <img src="img/play.png" alt="">
-                <p>Aula</p>
-            </div>
-            <div class="card_bt">
-                <img src="img/aula.png" alt="">
-                <p>Curso</p>
-            </div>
-            <div class="card_bt">
-                <img src="img/demanda.png"  alt="">
-                <p>Módulos</p>
-            </div>
-        </div>
-        </div>
+    <main style="border: 1px solid #000; width:80%; margin:2rem auto"; >
+        <p>oi</p>
+
+        <?php
+            $link = $_GET["link"];
+
+            $pag["1"] = "home.php";
+            $pag["2"] = "cliente.php";
+            $pag["3"] = "editar.php";
+            $pag["4"] = "deletar.php";
+            $pag["5"] = "lista.php";
+        ?>
     
     </main>
 
