@@ -39,7 +39,7 @@
         </button>
         </div>
     </header>
-    <main style="border: 1px solid #000; margin:2rem auto"; >
+    <main style=" margin:2rem auto"; >
 
         <?php
             @$link = $_GET["link"];
