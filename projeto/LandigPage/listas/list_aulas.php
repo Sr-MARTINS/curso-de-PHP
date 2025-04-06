@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">
 </head>
 <body>
-    <div style="width:800px; padding-top:1rem ; margin:2rem auto; border:1px solid black">
+    <div style="width:1000px; height:575px; padding-top:1rem ; margin:2rem auto; border:1px solid #a8a6a6">
         <h3 style="margin:auto ; padding-bottom:10px ; text-align:center; border-bottom: 1px solid #a8a6a6; width:80%;" >Aulas</h3>
 
         <div>
@@ -24,22 +24,22 @@
         </div>
 
         <div style="padding:20px ; height: 300px">
-            <div style="margin:10px;">
+            <div style="margin:3px 0 12px 0">
                 <button class="btn btn-success">
                     <a style="color: #fff" href="areaAdm.php?link=7">Cadastrar Aulas</a>
                 </button>
             </div>
-            <div style="padding:20px 20px 20px 30px; border:1px solid #a8a6a6; border-radius: .5rem; ; overflow-x: auto">
+            <div style="padding:20px 20px 20px 30px; border:1px solid #a8a6a6; border-radius: .5rem; height:300px; overflow-y: scroll;">
 
-            <table class="table" style="overflow-x: auto;">
+            <table class="table">
 
                 <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Titulo da aula</th>
-                    <th scope="col">Codigo</th>
-                    <th scope="col">Tipo</th>
-                    <th scope="col">Ativo</th>
-                    <th scope="col">Ação</th>
+                    <th>Id</th>
+                    <th>Titulo da aula</th>
+                    <th>Codigo</th>
+                    <th>Tipo</th>
+                    <th>Ativo</th>
+                    <th style="padding-left:25px">Ação</th>
                 </tr>
 
                 <?php
@@ -54,7 +54,7 @@
                     <td><?php echo $aula["tipo"] ?></td>
                     <td><?php echo $aula["atv_aula"] ?></td>
                     
-                    <td>
+                    <td style="display:flex; aling-item:center">
                         <a href="areaAdm.php?link=7&acao=Editar&id=<?=$aula["id_aula"] ?>">Editar</a> /
                         <a href="areaAdm.php?link=7&acao=Excluir&id=<?=$aula["id_aula"] ?>">Excluir</a>  
                     </td>
