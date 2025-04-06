@@ -1,3 +1,10 @@
+<?php
+
+  require("include/config.php");
+  require("include/crud.php");
+
+  openConnect();
+?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +26,12 @@
                 </button>
             </div>
             <div style="padding:10px 10px 10px 20px; border:1px solid #a8a6a6; border-radius: .5rem; ; overflow-x: auto;  " >
+
+                <?php
+                    $aulas = consultar("aula");
+                    foreach($aulas as $aula) {
+                ?>
+
                 <table class="table" style="overflow-x: auto;">
                     <tr>
                         <th scope="col">Id</th>
@@ -30,69 +43,18 @@
                     </tr>
 
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Video 1</td>
-                        <td>231</td>
-                        <td>Y</td>
-                        <td>S</td>
+                        <th><?php echo $aula["id_aula"] ?></th>
+                        <td><?php echo $aula["titulo_aula"] ?></td>
+                        <td><?php echo $aula["codigo"] ?></td>
+                        <td><?php echo $aula["tipo"] ?></td>
+                        <td><?php echo $aula["atv_aula"] ?></td>
                         
                         <td style="text-aling:center">
                             <a href="#">Editar</a> <a href="#">Excluir</a>  
                             <!-- <a href="#">Matricular</a> -->
                         </td>
                     </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Video 1</td>
-                        <td>231</td>
-                        <td>Y</td>
-                        <td>S</td>
-                        
-                        <td style="text-aling:center">
-                            <a href="#">Editar</a> /
-                            <a href="#">Excluir</a>  
-                            <!-- <a href="#">Matricular</a> -->
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Video 1</td>
-                        <td>231</td>
-                        <td>Y</td>
-                        <td>S</td>
-                        
-                        <td style="text-aling:center">
-                            <a href="#">Editar</a> /
-                            <a href="#">Excluir</a>  
-                            <!-- <a href="#">Matricular</a> -->
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Video 1</td>
-                        <td>231</td>
-                        <td>Y</td>
-                        <td>S</td>
-                        
-                        <td style="text-aling:center">
-                            <a href="#">Editar</a> /
-                            <a href="#">Excluir</a>  
-                            <!-- <a href="#">Matricular</a> -->
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Video 1</td>
-                        <td>231</td>
-                        <td>Y</td>
-                        <td>S</td>
-                        
-                        <td style="text-aling:center">
-                            <a href="#">Editar</a> /
-                            <a href="#">Excluir</a>  
-                            <!-- <a href="#">Matricular</a> -->
-                        </td>
-                    </tr>
+                    <?php } ?>
                 </table>
             </div>
         </div>

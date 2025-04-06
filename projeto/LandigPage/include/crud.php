@@ -32,7 +32,7 @@
     function consultar($tabela, $condicao=null, $campos = "*") {
         $condicao = ($condicao != null) ? " WHERE " . $condicao : "";
 
-        $sql = "SELECT {$campos} FROM {$tabela} {$condicao}";
+        $sql = "SELECT {$campos} FROM {$tabela}     {$condicao}";
 
         $qry = executar($sql);
 
@@ -71,7 +71,7 @@
         //atualizando item  
     function atualizarItem($tabela, $dados, $condicao) {
         foreach( $dados AS $chave => $valores) {
-            $campo[] = "{$tabela} = '{$valores}'";
+            $campo[] = "{$chave} = '{$valores}'";
         }
 
         $campo = implode(",", $campo);
@@ -83,7 +83,7 @@
     
     //deleteando item
     function delete($tabela, $condicao) {
-        $sql = "DELETE FROM $tabeça WHERE $condicao";
+        $sql = "DELETE FROM $tabela WHERE $condicao";
 
         return executar($sql);
     }

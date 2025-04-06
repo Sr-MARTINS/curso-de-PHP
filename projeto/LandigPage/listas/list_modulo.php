@@ -26,7 +26,7 @@
         <div style="padding:20px ; height: 300px">
             <div style="margin:10px;">
                 <button class="btn btn-success">
-                    Cadastrar Módulo
+                    <a href="areaAdm.php?link=8" style="color: #fff">Cadastrar Módulo</a>
                 </button>
             </div>
             <div style="padding:20px 20px 20px 30px; border:1px solid #a8a6a6; border-radius: .5rem; ; overflow-x: auto">
@@ -40,28 +40,24 @@
                     </tr>
                 </thead>
                 <tbody>
+
+                    <?php
+                        $dados = consultar("modulo");
+                        foreach($dados as $itens) {
+                    ?>
+
                     <tr>
-                        <th scope="row">1</th>
-                        <td>video 1</td>
-                        <td>S</td>
+                        <td><?= $itens["id_modulo"]      ?></td>
+                        <td><?= $itens["titulo_modulo"]  ?></td>
+                        <td><?= $itens["atv_modulo"]     ?></td>
                         
-                        <td style="text-aling:center">
-                            <a href="#">Editar</a> /
-                            <a href="#">Excluir</a>  
-                            <!-- <a href="#">Matricular</a> -->
+                        <td>
+                        <a href="areaAdm.php?link=8&acao=Editar&id=<?=$itens["id_modulo"] ?>">Editar</a> /
+                        <a href="areaAdm.php?link=8&acao=Excluir&id=<?=$itens["id_modulo"] ?>">Excluir</a>  
                         </td>
                     </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>video 1</td>
-                        <td>S</td>
-                        
-                        <td style="text-aling:center">
-                            <a href="#">Editar</a> /
-                            <a href="#">Excluir</a>  
-                            <!-- <a href="#">Matricular</a> -->
-                        </td>
-                    </tr>
+
+                    <?php } ?>
                 </tbody>
                 </table>
             </div>

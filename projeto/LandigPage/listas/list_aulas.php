@@ -26,50 +26,41 @@
         <div style="padding:20px ; height: 300px">
             <div style="margin:10px;">
                 <button class="btn btn-success">
-                    <a style="color: #fff" href="frm_aula.php">Cadastrar Aulas</a>
+                    <a style="color: #fff" href="areaAdm.php?link=7">Cadastrar Aulas</a>
                 </button>
             </div>
             <div style="padding:20px 20px 20px 30px; border:1px solid #a8a6a6; border-radius: .5rem; ; overflow-x: auto">
-                <table class="table" style="overflow-x: auto;">
-                <thead>
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Tipo de aula</th>
-                        <th scope="col">Codigo</th>
-                        <th scope="col">Tipo</th>
-                        <th scope="col">Ativo</th>
-                        <th style="text-aling:center">Ação</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>versao 1</td>
-                        <td>3212</td>
-                        <td>Y</td>
-                        <td>S</td>
-                        
-                        <td style="text-aling:center">
-                            <a href="#">Editar</a> /
-                            <a href="#">Excluir</a>  
-                            <!-- <a href="#">Matricular</a> -->
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>versao 1</td>
-                        <td>3212</td>
-                        <td>Y</td>
-                        <td>S</td>
-                        
-                        <td style="text-aling:center">
-                            <a href="#">Editar</a> /
-                            <a href="#">Excluir</a>  
-                            <!-- <a href="#">Matricular</a> -->
-                        </td>
-                    </tr>
-                </tbody>
-                </table>
+
+            <table class="table" style="overflow-x: auto;">
+
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Titulo da aula</th>
+                    <th scope="col">Codigo</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Ativo</th>
+                    <th scope="col">Ação</th>
+                </tr>
+
+                <?php
+                    $aulas = consultar("aula");
+                    foreach($aulas as $aula) {
+                ?>
+
+                <tr>
+                    <th><?php echo $aula["id_aula"] ?></th>
+                    <td><?php echo $aula["titulo_aula"] ?></td>
+                    <td><?php echo $aula["codigo"] ?></td>
+                    <td><?php echo $aula["tipo"] ?></td>
+                    <td><?php echo $aula["atv_aula"] ?></td>
+                    
+                    <td>
+                        <a href="areaAdm.php?link=7&acao=Editar&id=<?=$aula["id_aula"] ?>">Editar</a> /
+                        <a href="areaAdm.php?link=7&acao=Excluir&id=<?=$aula["id_aula"] ?>">Excluir</a>  
+                    </td>
+                </tr>
+                <?php } ?>
+            </table>
             </div>
         </div>
     </div>

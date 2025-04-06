@@ -26,9 +26,11 @@
                 <li><a href="areaAdm.php?link=1">Home</a></li>
                 <li><a href="areaAdm.php?link=2">Clientes</a></li>
                 <li><a href="areaAdm.php?link=3">Aulas</a></li>
-                <li><a href="areaAdm.php?link=4">Modulo</a></li>
+                <li><a href="areaAdm.php?link=5">Modulo</a></li>
                 <li><a href="areaAdm.php?link=5"></a></li>
                 <li><a href="areaAdm.php?link=6"></a></li>
+                <li><a href="areaAdm.php?link=7"></a></li>
+                <li><a href="areaAdm.php?link=8"></a></li>
             </ul>
         </nav>
         <div>
@@ -46,10 +48,11 @@
             $pag["2"] = "listas/list_cliente.php";
             $pag["3"] = "listas/list_aulas.php";
             $pag["4"] = "listas/list_curso.php";
-            $pag["5"] = "listas/list_modulos.php";
+            $pag["5"] = "listas/list_modulo.php";
             $pag["6"] = "frm_cliente.php";
             $pag["7"] = "frm_aula.php";
-
+            $pag["8"] = "frm_modulo.php";
+            
 
             if(!empty($link)) {
                 if(file_exists($pag["$link"])) {

@@ -45,6 +45,9 @@
                         <th scope="col">Id</th>
                         <th scope="col">Nome</th>
                         <th scope="col">Email</th>
+                        <th scope="col">Endereço</th>
+                        <!-- <th scope="col">Telefone</th> -->
+                        <!-- <th scope="col">Data</th> -->
                         <th style="text-aling:center">Ação</th>
                     </tr>
                 </thead>
@@ -53,6 +56,7 @@
                     <?php
 
                         $clientes = consultar("cliente");
+                        // var_dump($clientes);
                         foreach($clientes as $cliente) {
 
                     ?>
@@ -61,13 +65,12 @@
                         <th><?= $cliente["id_cliente"] ?> </th>
                         <td><?= $cliente["cliente"] ?> </td>
                         <td><?= $cliente["email"] ?> </td>
-                        <td><?= $cliente["data"] ?> </td>
+                        <td><?= $cliente["endereco"] ?> </td>
+                        
                         <td>
-                            <a href="areaAdm.php?link=6&acao=Editar">Editar</a> /
-                            <a href="areaAdm.php?link=6&acao=Excluir">Excluir</a>  
+                            <a href="areaAdm.php?link=6&acao=Editar&id=<?= $cliente["id_cliente"] ?>">Editar</a> /
+                            <a href="areaAdm.php?link=6&acao=Excluir&id=<?= $cliente["id_cliente"] ?>">Excluir</a>  
                         </td>
-
-                        <td><a href="frm_cliente.php">ir</a></td>
                     </tr>
 
                     <?php } ?>

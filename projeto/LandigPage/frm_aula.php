@@ -1,3 +1,18 @@
+<?php
+    @$id   = $_GET["id"];
+    @$acao = $_GET["acao"];
+
+    if($acao) {
+        $dados = consultar("aula", "id_aula = $id");
+
+        @$nome     = $dados[0]["titulo_aula"];
+        @$tipo     = $dados[0]["tipo"];
+        @$codigo   = $dados[0]["codigo"];
+        @$atv_aula = $dados[0]["atv_aula"];
+
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,65 +37,48 @@
             
             <div style="padding:20px 20px 20px 30px; border:1px solid #a8a6a6; border-radius: .5rem; ; overflow-x: auto">
                 
-            <form>
-                <div style="display:flex; justify-content: space-evenly; margin-right: 94px;">
-                    <div class="mb-3" style="margin-rigth: -30px">
-                        <label for="Nome" class="form-label">Modulo:</label>
-                        <select name="" class="form-control" id="exampleInputEmail1" style="width:300px" >
-                            <option value="">Modulo 1</option>
-                            <option value="">Modulo 2</option>
-                            <option value="">Modulo 3</option>
-                            <option value="">Modulo 4</option>
-                            <option value="">Modulo 5</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="Nome" class="form-label">Curso:</label>
-                        <select name="" class="form-control" id="exampleInputEmail1" style="width:300px" >
-                            <option value="">Curso 1</option>
-                            <option value="">Curso 2</option>
-                            <option value="">Curso 3</option>
-                            <option value="">Curso 4</option>
-                            <option value="">Curso 5</option>
-                        </select>
-                    </div>
-                </div>
+            <form action="opAula.php" method="POST">
                 <div class="mb-3" style="margin-right:20px">
                     <label for="Endereço" class="form-label">Titulo da aula:</label>
-                    <input style="margin-right:20px" type="password" class="form-control" id="exampleInputPassword1">
+                    <input style="margin-right:20px" type="text" class="form-control" name="intTitulo" value="<?= @$nome ?>" >
                 
                 </div>
-
-                <div class="mb-3" style="margin-right:20px">
-                    <label for="Endereço" class="form-label">Tipo de Video:</label>
-                    <select name="" class="form-control" id="exampleInputEmail1" >
-                            <option value="">Video 1</option>
-                            <option value="">Video 2</option>
-                            <option value="">Video 3</option>
-                            <option value="">Video 4</option>
-                            <option value="">Video 5</option>
-                    </select>
-                </div>
-
-                <div class="mb-3" style="display:flex; justify-content: space-evenly; margin-right: 94px;" >
-                    <div style="display:flex; flex-direction: column">
-                        <label for="Endereço" class="form-label">Ativo:</label>
-                        <input type="text" class="form-control" style="width:300px" >
+                <div style="display:flex; justify-content: space-evenly; margin-right: 94px;">
+                    <div class="mb-3" style="margin-rigth: -30px">
+                        <label for="Nome" class="form-label">Tipo:</label>
+                        <input type="text" name="intTipo" value="<?= @$tipo ?>">
+                        <!-- <select name="" class="form-control" id="exampleInputEmail1" style="width:300px" >
+                            <option value="">EDC</option>
+                            <option value="">DDC</option>
+                            <option value="">EBV</option>
+                            <option value="">ASE</option>
+                            <option value="">ASS</option>
+                        </select> -->
                     </div>
-                    <div style="display:flex; flex-direction: column">
-                        <label for="Fone" class="form-label">Duração:</label>
-                        <input type="text" class="form-control" style="width:300px" >
+                    <div class="mb-3">
+                        <label for="Nome" class="form-label">Codigo:</label>
+                        <input type="text" name="intCodigo" value="<?= @$codigo ?>">
                     </div>
                 </div>
 
-                <div style="display:flex; flex-direction: column ">
-                    <label style="margin-bottom:10px" for="texto">Texto:</label>
-                    <textarea name="" placeholder="Digite um texto"></textarea>
+                <div style="display:flex; justify-content: space-evenly; margin-right: 94px;">
+                    <div class="mb-3" style="margin-rigth: -30px">
+                        <label for="Nome" class="form-label">Ativo:</label>
+                        <input type="text" name="intAtv" value="<?= @$atv_aula ?>">
+                        <!-- <select name="" class="form-control" id="exampleInputEmail1" style="width:300px" >
+                            <option value="">EDC</option>
+                            <option value="">DDC</option>
+                            <option value="">EBV</option>
+                            <option value="">ASE</option>
+                            <option value="">ASS</option>
+                        </select> -->
+                    </div>
                 </div>
 
-                <button style="margin-top:2rem;"  type="submit"  class="btn btn-success">
-                    Cadastrar Aula
-                </button>
+                <input type="hidden" name="id" value="<?php echo @$id ?>">
+                <input type="hidden" name="acao" value="<?php if(@$acao != ""){echo $acao;}else{ echo "Cadastrar";} ?>">
+
+                <input type="submit" class="btn btn-success" style="margin-top:2rem;" value="<?php if(@$acao != "") {echo $acao;}else{echo "Cadastrar Aula";}?>">
                 
             </form>
             </div>

@@ -1,5 +1,21 @@
 <?php
+    @$id   = $_GET["id"];
     @$acao = $_GET["acao"];
+
+    if($acao != "") {
+        $dados = consultar("cliente", "id_cliente = $id");
+
+        $nome       = $dados[0]["cliente"];
+        $email      = $dados[0]["email"];
+        // $endereco   = $dados[0]["endereco"];
+        // $fone       = $dados[0]["fone"];
+           
+
+        echo $nome ."<br>";
+        echo $email ."<br>";
+        // echo $endereco ."<br>";
+        // echo $fone;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,25 +48,33 @@
                 
             <form action="opCliente.php" method="POST">
                 <div class="mb-3">
-                    <label for="Nome" class="form-label">Nome:</label>
-                    <input type="text" name="intName" class="form-control">
+                    <label for="nome" class="form-label">Nome:</label>
+
+                    <input type="text" name="intNome" class="form-control" value="<?= @$nome ?>">
                 </div>
+
                 <div class="mb-3">
-                    <label for="Email" class="form-label">Email :</label>
-                    <input type="text" name="intEmail" class="form-control">
+                    <label for="email" class="form-label">Email :</label>
+
+                    <input type="text" name="intEmail" class="form-control" value="<?php echo @$email ?>">
                 </div>
+
                 <div class="mb-3" style="display:flex; justify-content: space-evenly;">
+
                     <div style="display:flex; flex-direction: column">
                         <label for="endereço" class="form-label">Endereço:</label>
-                        <input style="width:200px" type="text" name="intEndereco" class="form-control">
+
+                        <input style="width:200px" type="text" name="intEndereco" class="form-control" value="<?php echo @$endereco ?>">
                     </div>
+
                     <div style="display:flex; flex-direction: column">
                         <label for="Fone" class="form-label">Fone:</label>
-                        <input style="width:200px" type="number" name="telefone" class="form-control">
+                        
+                        <input style="width:200px" type="text" name="telefone" class="form-control">
                     </div>
                 </div>
 
-                <input type="hidden" name="id">
+                <input type="hidden" name="id" value="<?php echo @$id ?>">
                 <input type="hidden" name="acao" value="<?php if(@$acao != ""){echo $acao;}else{ echo "Cadastrar";} ?>">
 
                 <input type="submit" class="btn btn-success" style="margin-top:2rem;" value="<?php if(@$acao != "") {echo $acao;}else{echo "Cadastrar Cliente";}?>">
