@@ -9,12 +9,7 @@
         $email      = $dados[0]["email"];
         $endereco   = $dados[0]["endereco"];
         $fone       = $dados[0]["fone"];
-           
 
-        echo $nome ."<br>";
-        echo $email ."<br>";
-        echo $endereco ."<br>";
-        echo $fone;
     }
 ?>
 <!DOCTYPE html>

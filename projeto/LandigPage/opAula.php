@@ -25,7 +25,7 @@ if(($titulo) && ($tipo) && ($codigo)) {
         $op = atualizarItem("aula", $dados, "id_aula = $id");
    }
    else {
-       $opp = delete("cliente", "id_cliente = $id");
+       $op = delete("aula", "id_aula = $id");
    }
 
    if(@$op) {

@@ -9,17 +9,11 @@ $acao = $_POST["acao"];
   $endereco   = $_POST["intEndereco"];
   $fone       = $_POST["telefone"];
 
-  echo $nome ."<br>";
-  echo $email ."<br>";
-  echo $endereco ."<br>";
-  echo $fone;
-
 $dados = array (
     "cliente"  => $nome,
     "email"    => $email,
     "endereco" => $endereco,
     "fone"     => $fone,
-    // "data"     => $fone
 );
 
 if(($nome) && ($email)) {
@@ -31,7 +25,7 @@ if(($nome) && ($email)) {
         $op = atualizarItem("cliente", $dados, "id_cliente = $id");
    }
    else {
-       // $opp = atualizarItem("cliente", "id_cliente = @$id")
+       $op = delete("cliente", "id_cliente = $id");
    }
 
    if(@$op) {

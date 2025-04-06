@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">
 </head>
 <body>
-    <div style="width:800px; padding-top:1rem ; margin:2rem auto; border:1px solid black">
+    <div style="width:800px; height:575px; padding-top:1rem ; margin:2rem auto; border:1px solid #a8a6a6">
         <h3 style="margin:auto ; padding-bottom:10px ; text-align:center; border-bottom: 1px solid #a8a6a6; width:80%;" >Lista de Modulo</h3>
 
         <div>
@@ -24,19 +24,19 @@
         </div>
 
         <div style="padding:20px ; height: 300px">
-            <div style="margin:10px;">
+            <div style="margin:3px 0 12px 0">
                 <button class="btn btn-success">
                     <a href="areaAdm.php?link=8" style="color: #fff">Cadastrar Módulo</a>
                 </button>
             </div>
-            <div style="padding:20px 20px 20px 30px; border:1px solid #a8a6a6; border-radius: .5rem; ; overflow-x: auto">
+            <div style="padding:20px 20px 20px 30px; border:1px solid #a8a6a6; border-radius: .5rem; height:300px; overflow-y: scroll;">
                 <table class="table" style="overflow-x: auto;">
                 <thead>
                     <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Tipo do módullo</th>
-                        <th scope="col">Ativo</th>
-                        <th style="text-aling:center">Ação</th>
+                        <th>Id</th>
+                        <th>Tipo do módullo</th>
+                        <th>Ativo</th>
+                        <th style="padding-left:25px">Ação</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -51,9 +51,9 @@
                         <td><?= $itens["titulo_modulo"]  ?></td>
                         <td><?= $itens["atv_modulo"]     ?></td>
                         
-                        <td>
-                        <a href="areaAdm.php?link=8&acao=Editar&id=<?=$itens["id_modulo"] ?>">Editar</a> /
-                        <a href="areaAdm.php?link=8&acao=Excluir&id=<?=$itens["id_modulo"] ?>">Excluir</a>  
+                        <td style="display:flex; aling-item:center">
+                        <a href="areaAdm.php?link=8&acao=Editar&id=<?=$itens["id_modulo"] ?>"><i class="bi bi-pencil-square"></i></a> 
+                        <a href="areaAdm.php?link=8&acao=Excluir&id=<?=$itens["id_modulo"] ?>"><i class="bi bi-trash"></i></a>  
                         </td>
                     </tr>
 

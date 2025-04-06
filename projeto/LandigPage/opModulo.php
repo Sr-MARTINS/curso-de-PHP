@@ -22,7 +22,7 @@ if($modulo && $atv_modulo) {
         $op = atualizarItem("modulo", $dados, "id_modulo = $id");
    }
    else {
-       $opp = delete("modulo", "id_cliente = $id");
+       $op = delete("modulo", "id_modulo = $id");
    }
 
    if(@$op) {

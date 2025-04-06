@@ -55,8 +55,8 @@
                     <td><?php echo $aula["atv_aula"] ?></td>
                     
                     <td style="display:flex; aling-item:center">
-                        <a href="areaAdm.php?link=7&acao=Editar&id=<?=$aula["id_aula"] ?>">Editar</a> /
-                        <a href="areaAdm.php?link=7&acao=Excluir&id=<?=$aula["id_aula"] ?>">Excluir</a>  
+                        <a href="areaAdm.php?link=7&acao=Editar&id=<?=$aula["id_aula"] ?>"><i class="bi bi-pencil-square"></i></a> 
+                        <a href="areaAdm.php?link=7&acao=Excluir&id=<?=$aula["id_aula"] ?>"><i class="bi bi-trash"></i></a>  
                     </td>
                 </tr>
                 <?php } ?>

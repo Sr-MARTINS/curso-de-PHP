@@ -70,19 +70,7 @@
                             <a href="areaAdm.php?link=6&acao=Editar&id=<?= $cliente["id_cliente"] ?>"><i class="bi bi-pencil-square"></i></a>
                             <a href="areaAdm.php?link=6&acao=Excluir&id=<?= $cliente["id_cliente"] ?>"><i class="bi bi-trash"></i></a>  
                         </td>
-                    </tr>
-                    <tr style="text-aling:center">
-                        <th><?= $cliente["id_cliente"] ?> </th>
-                        <td><?= $cliente["cliente"] ?> </td>
-                        <td><?= $cliente["email"] ?> </td>
-                        <td><?= $cliente["endereco"] ?> </td>
-                        <td><?= $cliente["fone"] ?> </td>
-                        
-                        <td style="display:flex; aling-item:center">
-                            <a href="areaAdm.php?link=6&acao=Editar&id=<?= $cliente["id_cliente"] ?>"><i class="bi bi-pencil-square"></i></a>
-                            <a href="areaAdm.php?link=6&acao=Excluir&id=<?= $cliente["id_cliente"] ?>"><i class="bi bi-trash"></i></a>  
-                        </td>
-                    </tr>   
+                    </tr>  
 
                     <?php } ?>
 
