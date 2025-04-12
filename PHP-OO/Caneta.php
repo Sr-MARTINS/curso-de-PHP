@@ -4,25 +4,25 @@ class Caneta
 {
     public $modelo;
     public $cor;
-    public $ponta;
-    public $carga;
-    public $tampa;
+    private $ponta;
+    protected $carga;
+    protected $tampa;
 
-    function rabiscar() 
+    public function rabiscar() 
     {
-        if($this->tampa){
-            echo "<p>Rabiscar</p>";
-        }else {
+        if($this->tampa == true){
             echo "<p>O obj esta tampado</p>";
+        }else {
+            echo "<p>Rabiscando...</p>";
         }
     }
 
-    function tampar() 
+    public function tampar() 
     {
         $this->tampa = false;
     }
     
-    function destampar()
+    public function destampar()
     {
         $this->tampa = true;
         
