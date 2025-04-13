@@ -8,11 +8,7 @@
         private $saldo;
         private $status;
 
-        public function __construct($sald, $status)
-        {
-            $this->saldo = 0;
-            $this->status  = false;
-        }
+
 
         public function setNunConta($numConta){
             $this->numConta = $numConta;
@@ -50,6 +46,12 @@
         }
 
 
+        public function __construct()
+        {
+            $this->saldo = 0;
+            $this->status  = false;
+        }
+
         public function abrirConta($tipo){
 
             $this->setTipo($tipo);
@@ -65,10 +67,10 @@
         
         public function fecharConta(){
             if($this->getSaldo() > 0 || $this->getSaldo() < 0) {
-                echo "Para fechar conta voce precisa esta com o saldo zerado";
+                echo "Para fechar conta voce precisa esta com o saldo zerado <br>";
             }else {
                 $this->setStatus (false);
-                echo "Conta fechada com sucesso";
+                echo "Conta fechada com sucesso <br>";
             }
         }
 
@@ -77,6 +79,7 @@
         public function depositar($valor){
             if($this->getStatus(true)) {
                $this->setSaldo($this->getSaldo() + $valor);
+                echo "Deposito de $valor foi realizado na conta de {$this->getDono()} com sucesso <br>";
             }else {
                 echo "Inposivel de depositar";
             }
@@ -86,6 +89,7 @@
             if($this->getStatus(true)){
                 if($this->getSaldo() > 0) {
                     $this->setSaldo($this->getSaldo() - $valor);
+                        echo "Saque de $valor realizado na conta de(a) {$this->getDono()} com sucesso <br>";
                 } else {
                     echo "Voce nao tem saldo";
                 }
@@ -95,17 +99,15 @@
         }
 
         public function pagarMensal(){
-            $pagarMensal = 0;
-
-            if($this->getTipo() == "CC") {git 
-                $pagarMensal = 12;
+            if($this->getTipo() == "CC") {
+                $valor = 12;
             } else if($this-> getTipo() == "CP") {
-                $pagarMensal == 20;
+                $valor = 20;
             }
         
             if($this->getStatus(true)) {
                 if($this->getSaldo() > 0) {
-                    $this->setSaldo($this->getSaldo() - $pagarMensal);
+                    $this->setSaldo($this->getSaldo() - $valor);
                 }else {
                     echo "Saldo Insuficiente";
                 }
