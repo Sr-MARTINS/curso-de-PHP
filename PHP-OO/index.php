@@ -27,3 +27,22 @@
     // echo "<hr>";
 
     // print_r($pessoa1);
+
+    require_once 'Garrafa.php';
+
+        // Construindo um objeto da classe Garrafa
+    // $g1 = new Garrafa("Branca", "aberta", "agua", 100);
+    // echo "<pre>";
+    // print_r($g1);
+
+    
+    // $g1->tampa = true;
+    // $g1->tampar();
+    // echo "<br>";
+
+        $g2 = new Garrafa();
+        $g2 -> setCor("Azul");
+    
+    echo "<pre>";
+    print_r($g2);
+
