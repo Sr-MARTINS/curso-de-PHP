@@ -11,9 +11,9 @@
     <?php
         require_once('Lutador.php');
 
-        // $L -> vetor[5];
+        $L = array ();
 
-        $L[0] = new Lutador("martins", "BR", 20, 1.65, 57.2, 14, 2, 3);
+        $L[0] = new Lutador("martins", "BR", 20, 1.65, 90.9, 14, 2, 3);
         
         $L[1] = new Lutador("silva", "FR", 30, 1.70, 65.0, 12, 2, 1);
         
@@ -26,11 +26,14 @@
         $L[5] = new Lutador("Lucas", "BR", 22, 1.56, 50.0, 5, 2, 3);
 
 
-        // $L[0].apresentar();
+        // $L ->apresentar();
 
         echo "<pre>";
-        print_r($L);
-
+        // print_r($L);
+        $L[1]->ganharLuta() ;
+        $L[1]->derrotaLuta();
+        $L[1]->lutasEmpate();
+        $L[1]->status();
 
 
     ?>
