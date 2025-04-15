@@ -137,7 +137,7 @@
         {
             $this->setDerrota($this->getDerrota() + 1);
         }
-        public function lutasEmpate()
+        public function lutaEmpate()
         {
             $this->setEmpate($this->getEmpate() + 1);
         }
