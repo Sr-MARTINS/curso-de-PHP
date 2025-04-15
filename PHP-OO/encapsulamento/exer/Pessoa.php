@@ -1,16 +1,20 @@
 <?php
 
-    class Pessoa
-    {
+    class Pessoa {
+
         private $nome;
         private $idade;
         private $sexo;
 
-        public function __contruct($nome, $idade, $sexo)
+        public function fazerAniversario(){
+            $this->idade++;
+        }
+
+        public function __construct($nome, $idade, $sexo)
         {
-            $this->$nome = "";
-            $this->$idade = 0;
-            $this->$sexo = null;
+            $this->nome  = $nome;
+            $this->idade = $idade;
+            $this->sexo  = $sexo;
         }
 
         public function getNome()
@@ -39,6 +43,5 @@
         {
             $this->sexo = $sexo;
         }
-
-        public function fazerAniversario(){}
     }
+    // var_dump($this->)

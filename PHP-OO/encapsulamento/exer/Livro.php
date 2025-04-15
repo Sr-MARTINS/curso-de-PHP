@@ -1,8 +1,9 @@
 <?php
 
-    require_once "Pessoa.php";
+    require_once 'Pessoa.php';
+    require_once 'Publicacao.php';
 
-    class Livro
+    class Livro implements Publicacao
     {
         private $titulo;
         private $autor;
@@ -11,7 +12,15 @@
         private $aberto;
         private $leitor;
 
-
+        public function __construct($titulo, $autor, $totPaginas, $leitor)
+        {
+            $this->titulo     = $titulo;
+            $this->autor      = $autor;
+            $this->totPaginas = $totPaginas;
+            $this->pagAtual   = 0;
+            $this->aberto     = false;
+            $this->leitor     = $leitor;
+        }
 
 
         public function getTitulo()
@@ -68,15 +77,55 @@
             $this->leitor = $leitor;
         }
 
-
-
         public function detalhes(){
             if($this->aberto) {
-                echo "Titulo:" .$this->titulo ."<br>";
-                echo "Autor: " .$this->autor ."<br>";
+                echo "Titulo do livro: "            .$this->titulo ."<br>";
+                echo "Autor: "            .$this->autor ."<br>";
                 echo "total de paginas: " .$this->totPaginas ."<br>";
-                echo "pagina Atual: " .$this->pagAtual ."<br>";
-                echo "Leitor: " .$this->leitor->getNome();
+                echo "pagina Atual: "     .$this->pagAtual ."<br>";
+                echo "Leitor: "           .$this->leitor->getNome();
             }
         }
+
+        public function abrir()
+        {
+            $this->aberto = true;
+        }
+        public function fechar()
+        {
+            $this->aberto = false;
+        }
+        public function folhear($p)
+        {
+            if($p > $this->totPaginas){
+                $this->pagAtual = 0;
+            
+            } else {
+                $this->pagAtual = $p;
+            }
+        }
+        public function avancarPag()
+        {
+            if($this->aberto){
+                if($this->pagAtual > $this->totPaginas)
+                {
+                    $this->pagAtual++;
+                    
+                } else {
+                    echo "Algum elemento esta faltando para poder avançar de pagina <br>";
+                }
+            }
+        }
+        public function voltarPag()
+        {
+            if($this->aberto && $this->pagAtual > 0)
+            {
+                $this->pagAtual--;
+            
+            } else {
+                echo "Se vc não esta conseguindo, algum elemento esta faltando <br>";
+            }
+        }
+
     }
+    //  var_dump($this->getTitulo());

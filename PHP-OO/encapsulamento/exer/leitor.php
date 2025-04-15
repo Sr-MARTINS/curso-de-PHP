@@ -11,11 +11,21 @@
     <?php
 
         require_once 'Pessoa.php';
+        require_once 'Livro.php';
 
-        $p1 = new Pessoa();
+        $p1 = new Pessoa("Lucas", 22, "Masculino");
+        // $p2 = new Pessoa("Maria", 25, "Feminino");
 
-        // echo "<pre>";
-        // var_dump($p1);
+        $l1 = new Livro("Aprendendo PHP", "José da Silva", 300, $p1);
+        // $l2 = new Livro("Aprendendo Java", "Maria da Silva", 500, $p2);
+
+        echo "<pre>";    
+        $l1->abrir();
+        $l1->folhear(0);
+        $l1->voltarPag();
+        $l1-> detalhes();
+
+        // echo $p1->getNome() ."<br>";
 
     ?>
     
