@@ -1,4 +1,4 @@
-<?php
+     <?php
 
     require_once 'Conta.php';
 
@@ -7,12 +7,12 @@
         protected $taxaJuro;
         // protected $saldoInicial;
 
-        public function __construct($numero, $agencia, $titular, $saldoInicial = 0, $taxaJuro = 0)
+        public function __construct($numero, $agencia, $titular, $saldo = 0, $taxaJuro = 0)
         {
-            $this->numero = $numero;
-            $this->agencia = $agencia;
-            $this->titular = $titular;
-            $this-> $saldoInicial;
+            $this->numero   = $numero;
+            $this->agencia  = $agencia;
+            $this->titular  = $titular;
+            $this->saldo    =  $saldo;
             $this->taxaJuro = $taxaJuro;
 
         }

@@ -33,39 +33,48 @@
         {
             return $this->saldo;
         }
+        public function setSaldo($saldo)
+        {
+            $this->saldo = $saldo;
+        }
   
 
         public function depositar($valor)
         {
-            // if($this->saldo < 0) {
-                $this->saldo = $this->saldo + $valor;
-            // } else {
-            //     $this->saldo = $this->saldo + $valor;
-            // }
-            
-            // echo "Valor depositado " .$valor ."<br>";
+           if($valor <= 0) {
+                echo "Deposito Invalido <br>";
+           }
 
+           $this->saldo = $this->saldo + $valor;
+           echo "Deposito Valido <br>";
         }
 
         public function sacar($valor)
         {
-            if ($valor > $this->saldo) {
-                echo "Valor invalido";
-
-            } else if ($this->saldo > 0 || $this->saldo >= $valor) {
+            if ($this->saldo > 0 || $this->saldo >= $valor) {
                 $this->saldo = $this->saldo - $valor;
-                // echo "Valor retirado " .$valor ."<br>";
-                // echo "Valor do saldo " .$this->saldo;
+
+                echo "Valor retirado " .$valor ."<br>";
+                echo "Valor do saldo " .$this->saldo;
             
             } else {
-                echo "Saldo Invalido";
+                echo "Saldo invalido";
             } 
         }
 
         public function transferir($valor, $destino)
         {
-            if($valor <=  $this->saldo) {
+            if($valor > 0 || $valor <= $this->saldo) {
+                $this->saldo = $this->saldo - $valor;
 
+                $destino->depositar($valor);
+                echo "Transferencia ok";
+            
+                // var_dump($destino);
+            } else {
+                echo "Erro transferencia ";
             }
+
         }
+
     }

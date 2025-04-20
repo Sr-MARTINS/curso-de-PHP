@@ -4,7 +4,7 @@
 
     class ContaCorrente extends Conta
     {
-        // protected $saldoInicial;
+
         protected $limite;
 
         public function __construct($numero, $agencia, $titular, $saldo = 0, $limite = 0)
@@ -16,16 +16,40 @@
             $this->limite   = $limite;
 
         }
-
-        public function sacar($valor)
+        public function depositar($valor)
         {
-            if($valor > $this->saldo) {
-                $this->saldo = -$valor;
+            if($this->saldo < 0) {
+                $this->limite = $this->limite + $valor; 
+                $this->saldo = $this->saldo + $valor;
+                
+                if($this->saldo > 0) {
+                    $this->limite = $this->limite - $valor;
+                }
 
-                $this->limete = $this->
+            } else {
+                $this->saldo = $this->saldo + $valor;
             }
 
         }
+
+        public function sacar($valor)
+        {
+            if($valor <= ($this->saldo + $this->limite)) {
+               if ($valor <= $this->saldo) {
+                    $this->saldo =  $this->saldo - $valor;
+               
+                } else {
+                    $sub = $valor - $this->saldo; 
+                    $this->saldo = -$sub;         
+                    $this->limite = $this->limite - $sub; 
+                }
+            
+            } else {
+                echo "sem saldo";
+            }
+
+        }
+
 
         public function getLimite()
         {
