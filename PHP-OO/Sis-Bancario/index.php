@@ -23,6 +23,8 @@
         // $cc ->sacar(200);
         // $cc ->depositar(50);
         // $cc ->depositar(50);
+        ContaCorrente::exemplo();
+        // ContaCorrente::transferir(100, $cp);
         $cc->transferir(100, $cp);
 
 

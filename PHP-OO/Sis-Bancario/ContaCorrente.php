@@ -60,4 +60,7 @@
             $this->limite = $limite;
         }
 
+        static public function exemplo(){
+            echo "conta corrente";
+        }
     }
