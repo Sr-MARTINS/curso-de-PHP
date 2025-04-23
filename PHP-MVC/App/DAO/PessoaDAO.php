@@ -22,8 +22,6 @@ class PessoaDAO
 
     public function selectById($id)
     {
-        include_once 'Model/PessoaModel.php';
-
         $sql = " SELECT * FROM pessoa WHERE id = ? ";
 
         $stmt = $this->conexao->prepare($sql);
