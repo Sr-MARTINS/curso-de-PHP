@@ -7,20 +7,25 @@ $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 switch($url) 
 {
     case "/":
-        PessoaController::index();
+        
         break;
-    
+        
     case '/pessoa':
-        PessoaController::form();
+        PessoaController::index();        
         break;
     
     case '/pessoa/form':
-        echo "formulario para salvar pessoas";
+        PessoaController::form();
         break;
 
     case '/pessoa/form/save':
         PessoaController::save();
+        break;
     
+    case '/pessoa/delete':
+        PessoaController::delete();
+        break;
+
     default:
         echo "Erro 404";
         break;
