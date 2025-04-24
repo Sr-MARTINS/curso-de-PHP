@@ -2,12 +2,14 @@
 
 // include 'Controller/PessoaController.php';
 
+use App\Controller\PessoaController;
+
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 switch($url) 
 {
     case "/":
-        
+        echo "Bem vindo ao sistema MVC";
         break;
         
     case '/pessoa':

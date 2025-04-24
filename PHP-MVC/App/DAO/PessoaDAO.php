@@ -1,5 +1,10 @@
 <?php
 
+namespace App\DAO;
+
+use App\Model\PessoaModel;
+use PDO;
+
 class PessoaDAO
 {
     private $conexao;
@@ -28,7 +33,7 @@ class PessoaDAO
         $stmt->bindValue(1, $id);
         $stmt->execute();
         
-        return $stmt->fetchObject("PessoaModel");
+        return $stmt->fetchObject("App\Model\PessoaModel");
     }
 
     public function insert(PessoaModel $model)
