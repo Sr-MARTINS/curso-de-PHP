@@ -4,14 +4,16 @@ namespace App\Controller;
 
 use App\Model\PessoaModel;
 
-class PessoaController
+class PessoaController extends Controller
 {
     public static function index()
     {
         $model = new PessoaModel();
         $model->getAllRows();
+
+        parent::render('Pessoas/ListaPessoa', $model);
         
-        include 'View/modules/Pessoas/ListaPessoa.php';
+        // include 'View/modules/Pessoas/ListaPessoa.php';
     }
 
     public static function form()
@@ -22,8 +24,8 @@ class PessoaController
 
             $model = $model->getById((int) $_GET['id']); 
         }
-
-        include_once 'View/modules/Pessoas/FromPessoa.php';
+        // include_once 'View/modules/Pessoas/FromPessoa.php';
+        parent::render('Pessoas/FromPessoa', $model);
     }
 
     public static function save()

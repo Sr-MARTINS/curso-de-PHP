@@ -5,14 +5,13 @@ namespace App\DAO;
 use App\Model\PessoaModel;
 use PDO;
 
-class PessoaDAO
+class PessoaDAO extends DAO
 {
-    private $conexao;
+    // private $conexao;
 
     public function __construct()
     {
-        $dsn = "mysql:host=localhost;dbname=db_mvc";
-        $this->conexao = new PDO($dsn, 'root', ''); 
+        parent::__construct();
     }
 
     public function select() 

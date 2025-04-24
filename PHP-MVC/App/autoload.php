@@ -2,6 +2,19 @@
 
 spl_autoload_register(function( $nome_da_class) {
 
+    $arquivo = BASEDIR . $nome_da_class .'.php';
+    // var_dump($nome_da_class) ."<br>";
+    // var_dump($arquivo) ."<br>";
+    // exit;
+
+    if(file_exists($arquivo)) 
+    {
+        include $arquivo;
+
+    } else {
+        exit("Aquirvo nao encontrado; Arquivo: " .$arquivo);
+    }
+
     // echo "Tentou incluir a " .$nome_da_class ."<br>";
     // Tentou incluir a App\Controller\PessoaController
     // C:\xampp\htdocs\cursoPHP\PHP-MVC\App App\Controller\PessoaController
@@ -12,7 +25,7 @@ spl_autoload_register(function( $nome_da_class) {
     // $class_dao        = 'DAO/' .$nome_da_class .".php";
 
 
-    include '../' . $nome_da_class .".php";
+    // include '../' . $nome_da_class .".php";
 
     // if(file_exists($class_controller)) 
     // {
