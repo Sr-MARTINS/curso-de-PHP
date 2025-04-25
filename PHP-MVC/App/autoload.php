@@ -25,7 +25,7 @@ spl_autoload_register(function( $nome_da_class) {
     // $class_dao        = 'DAO/' .$nome_da_class .".php";
 
 
-    // include '../' . $nome_da_class .".php";
+    // include '../' . $nome_da_class .".php"; 
 
     // if(file_exists($class_controller)) 
     // {
